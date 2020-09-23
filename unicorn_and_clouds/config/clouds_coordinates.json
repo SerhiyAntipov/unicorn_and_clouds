@@ -1,0 +1,130 @@
+{
+    "slide_left_bottom": [
+      {
+        "offset_x": 384,
+        "offset_y": 380,
+        "rotation": 0
+      },
+      {
+        "offset_x": 411,
+        "offset_y": 386,
+        "rotation": 45
+      },
+      {
+        "offset_x": 437,
+        "offset_y": 400,
+        "rotation": 90
+      },
+      {
+        "offset_x": 459,
+        "offset_y": 420,
+        "rotation": 135
+      },
+      {
+        "offset_x": 474,
+        "offset_y": 442,
+        "rotation": 180
+      },
+      {
+        "offset_x": 494,
+        "offset_y": 464,
+        "rotation": 0
+      }
+    ],
+    "slide_left_top": [
+      {
+        "offset_x": 384,
+        "offset_y": 300,
+        "rotation": 0
+      },
+      {
+        "offset_x": 411,
+        "offset_y": 308,
+        "rotation": 45
+      },
+      {
+        "offset_x": 437,
+        "offset_y": 322,
+        "rotation": 90
+      },
+      {
+        "offset_x": 459,
+        "offset_y": 342,
+        "rotation": 135
+      },
+      {
+        "offset_x": 474,
+        "offset_y": 364,
+        "rotation": 180
+      },
+      {
+        "offset_x": 494,
+        "offset_y": 378,
+        "rotation": 0
+      }
+    ],
+    "slide_right_bottom": [
+      {
+        "offset_x": 887,
+        "offset_y": 379,
+        "rotation": 65
+      },
+      {
+        "offset_x": 861,
+        "offset_y": 388,
+        "rotation": 20
+      },
+      {
+        "offset_x": 837,
+        "offset_y": 404,
+        "rotation": -25
+      },
+      {
+        "offset_x": 818,
+        "offset_y": 423,
+        "rotation": -70
+      },
+      {
+        "offset_x": 812,
+        "offset_y": 444,
+        "rotation": -135
+      },
+      {
+        "offset_x": 783,
+        "offset_y": 453,
+        "rotation": 0
+      }
+    ],
+    "slide_right_top": [
+      {
+        "offset_x": 889,
+        "offset_y": 299,
+        "rotation": 65
+      },
+      {
+        "offset_x": 863,
+        "offset_y": 308,
+        "rotation": 20
+      },
+      {
+        "offset_x": 839,
+        "offset_y": 324,
+        "rotation": -25
+      },
+      {
+        "offset_x": 819,
+        "offset_y": 344,
+        "rotation": -70
+      },
+      {
+        "offset_x": 810,
+        "offset_y": 367,
+        "rotation": -135
+      },
+      {
+        "offset_x": 780,
+        "offset_y": 375,
+        "rotation": 0
+      }
+    ]
+  }

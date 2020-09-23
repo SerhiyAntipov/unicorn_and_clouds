@@ -1,0 +1,4 @@
+.out/
+./channel/out/*.*
+./unicorn_and_clouds/out/*.*
+
