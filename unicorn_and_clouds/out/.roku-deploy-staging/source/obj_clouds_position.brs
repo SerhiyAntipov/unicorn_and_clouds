@@ -4,12 +4,12 @@ function obj_clouds_position(object)
 
         
         ' ###   
-        ' ### Create array eggs position
+        ' ### Create array clouds position
         m.game.clouds_position_array = {
-            slide_left_top: [0, 0, 0, 0, 0, 0]
-            slide_left_bottom: [0, 0, 0, 0, 0, 0]
-            slide_right_top: [0, 0, 0, 0, 0, 0]
-            slide_right_bottom: [0, 0, 0, 0, 0, 0]
+            slide_left_top: [0, 0, 0, 0]
+            slide_left_bottom: [0, 0, 0, 0]
+            slide_right_top: [0, 0, 0, 0]
+            slide_right_bottom: [0, 0, 0, 0]
         }
 
         ' ###
@@ -44,17 +44,17 @@ function obj_clouds_position(object)
         end function
 
         ' ### 
-        ' ### Get eggs coordinates 
+        ' ### Get clouds coordinates 
         ' ### Parse JSON and add to num array
         clouds_position_link_json = "pkg:/config/clouds_coordinates.json"
-		m.game.eggs_position_img = ParseJSON(ReadAsciiFile(clouds_position_link_json))
+		m.game.clouds_position_img = ParseJSON(ReadAsciiFile(clouds_position_link_json))
 
         ' ### 
         ' ### Variable for the sounds of the first 5 egg addition cycles
         m.cycle = 0
 
         ' ###
-        ' ### Render eggs 
+        ' ### Render clouds 
         m.renderEggs = function ()
 
             ' ### Create egg img object 
@@ -66,8 +66,8 @@ function obj_clouds_position(object)
             offset_y_value = ""
             rotation_value = ""
 
-            ' ### For each 1 layer "m.game.eggs_position_img"
-            for each item in m.game.eggs_position_img.Items() 
+            ' ### For each 1 layer "m.game.clouds_position_img"
+            for each item in m.game.clouds_position_img.Items() 
    
                 item_key = item.key
                 item_value = item.value
@@ -87,13 +87,13 @@ function obj_clouds_position(object)
 
                     alpha_value =  30
                        
-                    ' ### Last eggs unvisible - only for triggering en event 
+                    ' ### Last clouds unvisible - only for triggering en event 
                     if i = item_value.Count() - 1  then
                         alpha_value =  0
                     end if
                    
                     ' ### For each 3 layer
-                    for each item in m.game.eggs_position_img.[item_key][i].Items()
+                    for each item in m.game.clouds_position_img.[item_key][i].Items()
                         if item.key = "offset_x" then
                             offset_x_value = item.value
                         elseif item.key = "offset_y" then
@@ -109,7 +109,7 @@ function obj_clouds_position(object)
         m.renderEggs()
  
         ' ### 
-        ' ### Create clon all eggs img
+        ' ### Create clon all clouds img
         m.cloneCloudsImg = function ()      
             m.allCloudsImg = {}
             m.allCloudsImg.slide_left_top = []
@@ -134,7 +134,7 @@ function obj_clouds_position(object)
 
 
         ' ### 
-        ' ### Draw active eggs
+        ' ### Draw active clouds
         m.drawActiveEggs = function ()
 
             ' ### For each 1 leyer 
@@ -146,14 +146,14 @@ function obj_clouds_position(object)
                 ' ### For 2 leyer 
                 for  i = 0 to m.game.clouds_position_array[item_key].Count()-1 step i + 1 
                                        
-                    ' ### Visuble eggs equal "1" in array "m.game.clouds_position_array"
+                    ' ### Visuble clouds equal "1" in array "m.game.clouds_position_array"
                     if m.game.clouds_position_array[item_key][i] = 1 then
                         m.allCloudsImg[item_key][i]["alpha"] = 255
                     else 
-                        m.allCloudsImg[item_key][i]["alpha"] = 30
+                        m.allCloudsImg[item_key][i]["alpha"] = 50
                     end if
 
-                    ' ### Last eggs unvisible - only for triggering en event 
+                    ' ### Last clouds unvisible - only for triggering en event 
                     if i = m.game.clouds_position_array[item_key].Count()-1  then
                         m.allCloudsImg[item_key][i]["alpha"] = 0
                     end if
@@ -190,8 +190,8 @@ function obj_clouds_position(object)
     object.onUpdate = function(dt)
 
         ' ### 
-        ' ### Function starts up to 3 lost eggs 
-        ' ### If there are more than 3 lost eggs go to the "room_game_over" page
+        ' ### Function starts up to 3 lost clouds 
+        ' ### If there are more than 3 lost clouds go to the "room_game_over" page
         if m.game.scores["lose"] <= 3 then  
             if m.game.timer.TotalMilliseconds() >= m.game.speed
                 m.timerFunc(m.game.timer.TotalMilliseconds())
@@ -211,7 +211,7 @@ function obj_clouds_position(object)
         ' ### 
         ' ### For the sounds of the first 5 egg addition cycles
         if m.cycle < 5 then
-            m.game.playSound("egg_move_wav", 100)
+            m.game.playSound("cloud_move_wav", 100)
             m.cycle++
         endif
 

@@ -10,6 +10,9 @@ function room_game(object)
 		m.game.createInstance("clouds_position")
 		m.game.createInstance("score_handler")
 		m.game.createInstance("unicorn_position")
+
+		
+
 	end function
 
 	object.onUpdate = function(dt)		
@@ -19,6 +22,7 @@ function room_game(object)
 	end function
 
 	object.onDrawEnd = function(canvas)
+		
 	end function
 	
 	'###

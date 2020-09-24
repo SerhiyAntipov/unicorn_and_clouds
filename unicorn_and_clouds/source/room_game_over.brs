@@ -8,7 +8,7 @@ function room_game_over(object)
 
 		m.game.font_happy_sans = m.game.getFont("font_happy_sans")
 
-		room_game_over_bg = m.game.getBitmap("room_start_bg")
+		room_game_over_bg = m.game.getBitmap("game_bg_02")
 		region = CreateObject("roRegion", room_game_over_bg, 0, 0, room_game_over_bg.GetWidth(), room_game_over_bg.GetHeight())
 		m.addImage("bg", region,{ offset_x:(1280-room_game_over_bg.GetWidth())/2, offset_y:(720-room_game_over_bg.GetHeight())/2})
 	end function

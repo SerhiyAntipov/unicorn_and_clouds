@@ -2,23 +2,17 @@ function obj_unicorn_position(object)
 
     object.onCreate = function(args)
        
-        '###
-        '### Create game bg 
-        color_bg = m.game.getBitmap("color_bg")
-        width = color_bg.GetWidth()
-        height = color_bg.GetHeight()
-        region = CreateObject("roRegion", color_bg, 0, 0, width, height)
-        m.addImage("color_bg", region,{ offset_x: 0, offset_y: 0})
+        ' '###
+        ' '### Create game bg 
+        game_bg_02 = m.game.getBitmap("game_bg_02")
+		width = game_bg_02.GetWidth()
+		height = game_bg_02.GetHeight()
+		region = CreateObject("roRegion", game_bg_02, 0, 0, width, height)
+		m.addImage("game_bg_02", region,{ offset_x:(1280-width)/2, offset_y:(720-height)/2})
 
-
-        game_bg = m.game.getBitmap("game_bg")
-        width = game_bg.GetWidth()
-        height = game_bg.GetHeight()
-        region = CreateObject("roRegion", game_bg, 0, 0, width, height)
-        m.addImage("game_bg", region,{ offset_x:(1280-width)/2, offset_y:(720-height)/2})
-        
+       
         '###
-        '### Create array wolf posistion
+        '### Create array unicorn posistion
         m.game.unicorn_position = {
 			position_left: true
 			position_right: false
@@ -27,18 +21,18 @@ function obj_unicorn_position(object)
         }
         
         '###    
-        '### Create img  wolf + basket
+        '### Create img  unicorn + basket
         unicorn_left = m.game.getBitmap("unicorn_left")
         width = unicorn_left.GetWidth()
         height = unicorn_left.GetHeight()
         region = CreateObject("roRegion", unicorn_left, 0, 0, width, height)
-        m.addImage("unicorn_left_image", region,{ offset_x:(1280-width)/2 - 60, offset_y:(720-height)/2 + 67, alpha: 15, class: "wolf"})
+        m.addImage("unicorn_left_image", region,{ offset_x:(1280-width)/2 - 60, offset_y:(720-height)/2 + 67, alpha: 15, class: "unicorn"})
 
         unicorn_right = m.game.getBitmap("unicorn_right")
         width = unicorn_right.GetWidth()
         height = unicorn_right.GetHeight()
         region = CreateObject("roRegion", unicorn_right, 0, 0, width, height)
-        m.addImage("unicorn_right_image", region,{ offset_x:(1280-width)/2 + 60, offset_y:(720-height)/2 + 67, alpha: 15, class: "wolf"})
+        m.addImage("unicorn_right_image", region,{ offset_x:(1280-width)/2 + 60, offset_y:(720-height)/2 + 67, alpha: 15, class: "unicorn"})
 
         basket_left_top = m.game.getBitmap("basket_left_top")
         width = basket_left_top.GetWidth()
@@ -100,15 +94,15 @@ function obj_unicorn_position(object)
     object.onDrawEnd = function(canvas)
        
         '###
-        '### wolf left position
+        '### unicorn left position
         if m.game.unicorn_position.position_left = true then
             m.unicorn_left_image.alpha = 255
             m.unicorn_right_image.alpha = 15
             ' print text 
-            ' DrawText(canvas, "wolf left", canvas.GetWidth()/2, canvas.GetHeight()-70,  m.game.font_SF_Digital_Readout, "center", &h2d2d2dFF)
+            ' DrawText(canvas, "unicorn left", canvas.GetWidth()/2, canvas.GetHeight()-70,  m.game.font_SF_Digital_Readout, "center", &h2d2d2dFF)
            
             '###
-            '### wolf left + left top basket position
+            '### unicorn left + left top basket position
             if m.game.unicorn_position.position_top = true then                 
                 m.basket_left_top.alpha = 255
                 m.basket_left_bottom.alpha = 15
@@ -118,7 +112,7 @@ function obj_unicorn_position(object)
                 ' DrawText(canvas, "basket top", canvas.GetWidth()/2, canvas.GetHeight()-100, m.game.font_SF_Digital_Readout, "center", &h2d2d2dFF)
             
             '###
-            '### wolf left + left bottom basket position 
+            '### unicorn left + left bottom basket position 
             elseif m.game.unicorn_position.position_bottom = true then
                 m.basket_left_top.alpha = 15
                 m.basket_left_bottom.alpha = 255
@@ -129,15 +123,15 @@ function obj_unicorn_position(object)
             endif
         
         '###
-        '### wolf right position
+        '### unicorn right position
         elseif m.game.unicorn_position.position_right = true then           
             m.unicorn_right_image.alpha = 255
             m.unicorn_left_image.alpha = 15
             'print text
-            ' DrawText(canvas, "wolf right", canvas.GetWidth()/2, canvas.GetHeight()-70, m.game.font_SF_Digital_Readout, "center", &h2d2d2dFF)
+            ' DrawText(canvas, "unicorn right", canvas.GetWidth()/2, canvas.GetHeight()-70, m.game.font_SF_Digital_Readout, "center", &h2d2d2dFF)
             
             '###
-            '### wolf right + right top basket position
+            '### unicorn right + right top basket position
             if m.game.unicorn_position.position_top = true then
                 m.basket_left_top.alpha = 15
                 m.basket_left_bottom.alpha = 15
@@ -147,7 +141,7 @@ function obj_unicorn_position(object)
                 ' DrawText(canvas, "basket top", canvas.GetWidth()/2, canvas.GetHeight()-100, m.game.font_SF_Digital_Readout, "center", &h2d2d2dFF)
 
             '###
-            '### wolf right + right bottom basket position 
+            '### unicorn right + right bottom basket position 
             elseif m.game.unicorn_position.position_bottom = true then
                 m.basket_left_top.alpha = 15
                 m.basket_left_bottom.alpha = 15

@@ -7,7 +7,7 @@ function room_start(object)
 		m.game.font_happy_sans = m.game.getFont("font_happy_sans")
 		'####
 		'#### create static backgroung and UI in room
-		room_start_bg = m.game.getBitmap("room_start_bg")
+		room_start_bg = m.game.getBitmap("game_bg_02")
 		from_x = 0
 		from_y = 0
 		width = room_start_bg.GetWidth()
