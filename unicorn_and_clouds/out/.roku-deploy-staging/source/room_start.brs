@@ -4,10 +4,11 @@ function room_start(object)
 	
 		'### 
 		'### get fonts 
-		m.game.font_happy_sans = m.game.getFont("font_happy_sans")
+		m.game.font_SF_Digital_Readout = m.game.getFont("font_SF_Digital_Readout") 
+		
 		'####
 		'#### create static backgroung and UI in room
-		room_start_bg = m.game.getBitmap("game_bg_02")
+		room_start_bg = m.game.getBitmap("bg_bg")
 		from_x = 0
 		from_y = 0
 		width = room_start_bg.GetWidth()
@@ -25,7 +26,7 @@ function room_start(object)
 
 	' draw top layer in game  (above any static sprites)
 	object.onDrawEnd = function(canvas)
-		DrawText(canvas, "Press OK to Play", canvas.GetWidth() / 2, canvas.GetHeight()/2 - 250, m.game.font_happy_sans, "center", &h0053c5FF)	
+		DrawText(canvas, "Press OK to Play", canvas.GetWidth() / 2, canvas.GetHeight() - 80, m.game.font_SF_Digital_Readout, "center",  &hae7987FF)	
 	end function
 
 	' ####

@@ -3,6 +3,8 @@ function obj_score_handler(object)
     object.onCreate = function(args)
  
         m.game.createInstance("boss_animated_image")
+        
+        m.game.createInstance("rainbow")
 
         ' ### 
         ' ### Add animated image left
@@ -42,7 +44,7 @@ function obj_score_handler(object)
     end function
 
     object.onGameEvent = function(event as string, data as object)    
-    
+        
         if event = "score"    
             m.game.scores.eggs =  m.game.scores.eggs + 1
             m.game.playSound("cloud_basket_wav", 100)
@@ -120,18 +122,24 @@ function obj_score_handler(object)
             m.game.speed = 800
         elseif m.game.scores.eggs > 150 then
             m.game.speed = 900
-        elseif m.game.scores.eggs > 125 then
-            m.game.speed = 1000
-        elseif m.game.scores.eggs > 100 then
-            m.game.speed = 1100
-        elseif m.game.scores.eggs > 80 then
-            m.game.speed = 1200
         elseif m.game.scores.eggs > 60 then
-            m.game.speed = 1300
+            m.game.speed = 1000
+            m.game.rainbow_alpha = 255
+        elseif m.game.scores.eggs > 50 then
+            m.game.speed = 1100
+            m.game.rainbow_alpha = 225
         elseif m.game.scores.eggs > 40 then
+            m.game.speed = 1200
+            m.game.rainbow_alpha = 195
+        elseif m.game.scores.eggs > 30 then
+            m.game.speed = 1300
+            m.game.rainbow_alpha = 165
+        elseif m.game.scores.eggs > 20 then
             m.game.speed = 1400
-        elseif m.game.scores.eggs <= 20 then
+            m.game.rainbow_alpha = 135
+        elseif m.game.scores.eggs <= 10 then
             m.game.speed = 1500
+            m.game.rainbow_alpha = 255
         end if 
 
         ' ### 
@@ -148,6 +156,12 @@ function obj_score_handler(object)
             m.game.animatedimage_boss.index = 2
         else if m.game.scores["lose"] = 3 then 
             m.game.animatedimage_boss.index = 3
+        else if m.game.scores["lose"] = 4 then 
+            m.game.animatedimage_boss.index = 4
+        else if m.game.scores["lose"] = 5 then 
+            m.game.animatedimage_boss.index = 5
+        else if m.game.scores["lose"] = 6 then 
+            m.game.animatedimage_boss.index = 5 
         end if
 
     end function
@@ -177,8 +191,8 @@ function obj_score_handler(object)
 
         font = m.game.font_SF_Digital_Readout
     
-        DrawText(canvas, "Score" + "  " + m.game.scores.eggs.ToStr(), 1280 - 400, 200, font, "right", &h2d2d2dFF)
-        ' DrawText(canvas, "Lose " + "  " + m.game.scores.lose.ToStr(), 1280 - 400, 230, font, "right", &h2d2d2dFF)   
+        DrawText(canvas, "Score" + "  " + m.game.scores.eggs.ToStr(), 1280 - 400, 30, font, "right", &hae7987FF)
+        DrawText(canvas, "Lose " + "  " + m.game.scores.lose.ToStr(), 1280 - 750, 30, font, "right", &hae7987FF)   
     end function
 
 end function

@@ -7,10 +7,7 @@ sub Main()
 	
 	' ###
 	' ### load bitmap
-	game.loadBitmap("basket_left_bottom", "pkg:/sprites/basket_left_bottom.png")
-	game.loadBitmap("basket_left_top", "pkg:/sprites/basket_left_top.png")
-	game.loadBitmap("basket_right_bottom", "pkg:/sprites/basket_right_bottom.png")
-	game.loadBitmap("basket_right_top", "pkg:/sprites/basket_right_top.png")
+	
 	game.loadBitmap("chick_right_01", "pkg:/sprites/chick_right_01.png")
 	game.loadBitmap("chick_left_01", "pkg:/sprites/chick_left_01.png")
 	game.loadBitmap("chick_right_02", "pkg:/sprites/chick_right_02.png")
@@ -21,20 +18,33 @@ sub Main()
 	game.loadBitmap("chick_left_04", "pkg:/sprites/chick_left_04.png")
 	game.loadBitmap("egg_broken_right", "pkg:/sprites/egg_broken_right.png")
 	game.loadBitmap("egg_broken_left", "pkg:/sprites/egg_broken_left.png")
-	game.loadBitmap("lose", "pkg:/sprites/lose.png")
 	
 	' ############################# 
 
-	game.loadBitmap("cloud", "pkg:/sprites/cloud_01.png")
-	game.loadBitmap("game_bg_01", "pkg:/sprites/game_bg_01.png")
-	game.loadBitmap("game_bg_02", "pkg:/sprites/game_bg_02.png")
+	game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
+	game.loadBitmap("bg_earth", "pkg:/sprites/bg_earth.png")
+	game.loadBitmap("shelfs_shelfs_left", "pkg:/sprites/shelfs_shelfs-left.png")
+	game.loadBitmap("shelfs_shelfs_right", "pkg:/sprites/shelfs_shelfs-right.png")
+
 	game.loadBitmap("unicorn_left", "pkg:/sprites/unicorn_left.png")
 	game.loadBitmap("unicorn_right", "pkg:/sprites/unicorn_right.png")
-	game.loadBitmap("room_start_bg", "pkg:/sprites/room_start_bg.jpg")
-	game.loadBitmap("boss_1", "pkg:/sprites/boss/boss_1.png")
-	game.loadBitmap("boss_2", "pkg:/sprites/boss/boss_2.png")
-	game.loadBitmap("boss_3", "pkg:/sprites/boss/boss_3.png")
-	game.loadBitmap("boss_4", "pkg:/sprites/boss/boss_4.png")
+	game.loadBitmap("basket_left_bottom", "pkg:/sprites/basket_left_bottom.png")
+	game.loadBitmap("basket_left_top", "pkg:/sprites/basket_left_top.png")
+	game.loadBitmap("basket_right_bottom", "pkg:/sprites/basket_right_bottom.png")
+	game.loadBitmap("basket_right_top", "pkg:/sprites/basket_right_top.png")
+	
+	game.loadBitmap("cloud", "pkg:/sprites/clouds/clouds-little_little-cloud-03.png")
+		
+	game.loadBitmap("boss_1", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-01.png")
+	game.loadBitmap("boss_2", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-02.png")
+	game.loadBitmap("boss_3", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-03.png")
+	game.loadBitmap("boss_4", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-04.png")
+	game.loadBitmap("boss_5", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-05.png")
+
+	game.loadBitmap("unicorn_burned", "pkg:/sprites/unicorn_unicorn_burned.png")
+	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")
+
+
 
 	' ###
 	' ### load sound
@@ -66,6 +76,7 @@ sub Main()
 	game.defineObject("catch_game_event", obj_catch_game_event)
 	game.defineObject("egg_animated_image", obj_egg_animated_image)
 	game.defineObject("boss_animated_image", obj_boss_animated_image)
+	game.defineObject("rainbow", obj_rainbow)
 
 	' ###
 	' ### initialize tools and controllers
@@ -76,7 +87,7 @@ sub Main()
 	game.changeRoom("room_start")
 	' ### ------------------------------------------
 	' ### For test
-	game.changeRoom("room_game") 
+	' game.changeRoom("room_game") 
 	' game.changeRoom("room_game_over") 
 	' ### ------------------------------------------
 

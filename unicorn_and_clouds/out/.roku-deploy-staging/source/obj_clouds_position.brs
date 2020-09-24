@@ -85,7 +85,7 @@ function obj_clouds_position(object)
                         name_img = "slide_right_bottom"
                     end if
 
-                    alpha_value =  30
+                    alpha_value =  0
                        
                     ' ### Last clouds unvisible - only for triggering en event 
                     if i = item_value.Count() - 1  then
@@ -150,7 +150,7 @@ function obj_clouds_position(object)
                     if m.game.clouds_position_array[item_key][i] = 1 then
                         m.allCloudsImg[item_key][i]["alpha"] = 255
                     else 
-                        m.allCloudsImg[item_key][i]["alpha"] = 50
+                        m.allCloudsImg[item_key][i]["alpha"] = 0
                     end if
 
                     ' ### Last clouds unvisible - only for triggering en event 
@@ -192,7 +192,7 @@ function obj_clouds_position(object)
         ' ### 
         ' ### Function starts up to 3 lost clouds 
         ' ### If there are more than 3 lost clouds go to the "room_game_over" page
-        if m.game.scores["lose"] <= 3 then  
+        if m.game.scores["lose"] <= 4 then  
             if m.game.timer.TotalMilliseconds() >= m.game.speed
                 m.timerFunc(m.game.timer.TotalMilliseconds())
                 m.game.timer.mark()

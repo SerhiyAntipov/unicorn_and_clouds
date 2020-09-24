@@ -5,12 +5,13 @@ function room_game(object)
 		'### 
 		'### Get fonts 
 		m.game.font_SF_Digital_Readout = m.game.getFont("font_SF_Digital_Readout") 
-					
+
+		' loading_unicorn_sprite = TexturePacker_GetRegions(ParseJson(ReadAsciiFile("pkg:/sprites/unicorn-clouds-sprite.json")),m.game.getBitmap("unicorn-clouds-sprite"))
+			
 		m.game.createInstance("pause_handler")
 		m.game.createInstance("clouds_position")
 		m.game.createInstance("score_handler")
 		m.game.createInstance("unicorn_position")
-
 		
 
 	end function
