@@ -3,9 +3,7 @@ function obj_score_handler(object)
     object.onCreate = function(args)
  
         m.game.createInstance("boss_animated_image")
-        
-        m.game.createInstance("rainbow")
-
+                
         ' ### 
         ' ### Add animated image left
 		egg_broken_left = m.game.getBitmap("egg_broken_left")
@@ -113,33 +111,35 @@ function obj_score_handler(object)
         ' ### 
         ' ### Rewriting game speed
         if m.game.scores.eggs > 250 then
-            m.game.speed = 500
+            m.game.speed = 400
         elseif m.game.scores.eggs > 225 then
-            m.game.speed = 600
+            m.game.speed = 500
         elseif m.game.scores.eggs > 200 then
-            m.game.speed = 700
+            m.game.speed = 600
         elseif m.game.scores.eggs > 175 then
-            m.game.speed = 800
+            m.game.speed = 700
         elseif m.game.scores.eggs > 150 then
-            m.game.speed = 900
+            m.game.speed = 800
         elseif m.game.scores.eggs > 60 then
+            m.game.speed = 900
+        elseif m.game.scores.eggs >= 50 then
             m.game.speed = 1000
-            m.game.rainbow_alpha = 255
-        elseif m.game.scores.eggs > 50 then
+            m.game.rainbow.alpha = 255
+        elseif m.game.scores.eggs >= 40 then
             m.game.speed = 1100
-            m.game.rainbow_alpha = 225
-        elseif m.game.scores.eggs > 40 then
+            m.game.rainbow.alpha = 225
+        elseif m.game.scores.eggs >= 30 then
             m.game.speed = 1200
-            m.game.rainbow_alpha = 195
-        elseif m.game.scores.eggs > 30 then
+            m.game.rainbow.alpha = 195
+        elseif m.game.scores.eggs >= 20 then
             m.game.speed = 1300
-            m.game.rainbow_alpha = 165
-        elseif m.game.scores.eggs > 20 then
+            m.game.rainbow.alpha = 165
+        elseif m.game.scores.eggs >= 10 then
             m.game.speed = 1400
-            m.game.rainbow_alpha = 135
-        elseif m.game.scores.eggs <= 10 then
+            m.game.rainbow.alpha = 135
+        elseif m.game.scores.eggs < 10 then
             m.game.speed = 1500
-            m.game.rainbow_alpha = 255
+            m.game.rainbow.alpha = 75
         end if 
 
         ' ### 
@@ -167,8 +167,8 @@ function obj_score_handler(object)
     end function
 
     object.onUpdate = function(dt)
-        animatedImageSpeed = 1500 - 20
-        if m.game.animatedImageTimer <> invalid and m.game.animatedImageTimer.TotalMilliseconds() >= animatedImageSpeed then          
+        m.game.loseCloudAnimatedImageSpeed = 1500
+        if m.game.animatedImageTimer <> invalid and m.game.animatedImageTimer.TotalMilliseconds() >= m.game.loseCloudAnimatedImageSpeed then          
             m.deleteAnimatedImage(m.game.data_side)
             
             ' ### 

@@ -43,6 +43,10 @@ sub Main()
 
 	game.loadBitmap("unicorn_burned", "pkg:/sprites/unicorn_unicorn_burned.png")
 	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")
+	
+	game.loadBitmap("lightning_1", "pkg:/sprites/lightning/koshkmyak-cloud_lightning.png")
+	game.loadBitmap("lightning_2", "pkg:/sprites/lightning/koshkmyak-cloud_lightning_copy.png")
+	game.loadBitmap("lightning_3", "pkg:/sprites/lightning/koshkmyak-cloud_lightning_copy_2.png")
 
 
 
@@ -62,9 +66,10 @@ sub Main()
 	game.loadFont("font_happy_sans", "Happy Sans", 40, false, false)
 	' ###
 	' ### load room
-	game.defineRoom("room_game", room_game)
+	game.defineRoom("room_game_start", room_game_start)
+	game.defineRoom("room_game_play", room_game_play)
 	game.defineRoom("room_game_over", room_game_over)
-	game.defineRoom("room_start", room_start)
+	
 	
 	' ###
 	' ### load object
@@ -77,6 +82,7 @@ sub Main()
 	game.defineObject("egg_animated_image", obj_egg_animated_image)
 	game.defineObject("boss_animated_image", obj_boss_animated_image)
 	game.defineObject("rainbow", obj_rainbow)
+	game.defineObject("game_background", obj_game_background)
 
 	' ###
 	' ### initialize tools and controllers
@@ -84,10 +90,10 @@ sub Main()
 
 	' ###
 	' ### sellect room
-	game.changeRoom("room_start")
+	game.changeRoom("room_game_start")
 	' ### ------------------------------------------
 	' ### For test
-	' game.changeRoom("room_game") 
+	' game.changeRoom("room_game_play") 
 	' game.changeRoom("room_game_over") 
 	' ### ------------------------------------------
 

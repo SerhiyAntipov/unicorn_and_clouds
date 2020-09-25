@@ -32,19 +32,68 @@ function obj_boss_animated_image(object)
 				enabled: true,
 				loopAnimation: false,
 				LoopAction: false,
-				running: false
+				running: false,
+				Animate: invalid, ' The method that handles animation
 			})
 
 	end function
 	
-	object.onUpdate = function(dt)
-	end function
+	' This is the structure of the methods that can be added to an object
 
-	object.onButton = function(code as integer)
+	' object.onUpdate = function(deltaTime)
+	' end function
 
-	end function
-	
-	object.onDrawEnd = function(canvas as object)
-	end function
+	' object.onCollision = function(collider, other_collider, other_instance)
+	' end function
+
+	' object.onDrawBegin = function(canvas)
+	' end function
+
+	' object.onDrawEnd = function(canvas)
+	' end function
+
+	' object.onButton = function(code)
+	' 	' -------Button Code Reference--------
+	' 	' Button  When pressed  When released When Held
+
+	' 	' Back  0  100 1000
+	' 	' Up  2  102 1002
+	' 	' Down  3  103 1003
+	' 	' Left  4  104 1004
+	' 	' Right  5  105 1005
+	' 	' Select  6  106 1006
+	' 	' Instant Replay  7  107 1007
+	' 	' Rewind  8  108 1008
+	' 	' Fast  Forward  9  109 1009
+	' 	' Info  10  110 1010
+	' 	' Play  13  113 1013
+	' end function
+
+	' object.onECPKeyboard = function(char)
+	' end function
+
+	' object.onECPInput = function(data)
+	' end function
+
+	' object.onAudioEvent = function(msg)
+	' end function
+
+	' object.onPause = function()
+	' end function
+
+	' object.onResume = function(pause_time)
+	' end function
+
+	' object.onUrlEvent = function(msg)
+	' end function
+
+	' object.onGameEvent = function(event, data)
+	' end function
+
+	' object.onChangeRoom = function(new_room)
+	' end function
+
+	' object.onDestroy = function()
+	' end function
 
 end function

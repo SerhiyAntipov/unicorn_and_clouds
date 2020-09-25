@@ -1,4 +1,4 @@
-function room_start(object)
+function room_game_start(object)
 
 	object.onCreate = function(args)
 	
@@ -33,7 +33,7 @@ function room_start(object)
 	' ####  button click "OK"
 	object.onButton = function(code as integer)
 		if code = 6 then
-			m.game.changeRoom("room_game")
+			m.game.changeRoom("room_game_play")
 		end if
 	end function
 
