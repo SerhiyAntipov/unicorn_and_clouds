@@ -8,32 +8,9 @@ sub Main()
 	' ###
 	' ### load bitmap
 	
-	game.loadBitmap("chick_right_01", "pkg:/sprites/chick_right_01.png")
-	game.loadBitmap("chick_left_01", "pkg:/sprites/chick_left_01.png")
-	game.loadBitmap("chick_right_02", "pkg:/sprites/chick_right_02.png")
-	game.loadBitmap("chick_left_02", "pkg:/sprites/chick_left_02.png")
-	game.loadBitmap("chick_right_03", "pkg:/sprites/chick_right_03.png")
-	game.loadBitmap("chick_left_03", "pkg:/sprites/chick_left_03.png")
-	game.loadBitmap("chick_right_04", "pkg:/sprites/chick_right_04.png")
-	game.loadBitmap("chick_left_04", "pkg:/sprites/chick_left_04.png")
-	game.loadBitmap("egg_broken_right", "pkg:/sprites/egg_broken_right.png")
-	game.loadBitmap("egg_broken_left", "pkg:/sprites/egg_broken_left.png")
-
-
-
-	game.loadBitmap("lost_cloud_01", "pkg:/sprites/lost_cloud/lost-cloud-animation_01.png")
-	game.loadBitmap("lost_cloud_02", "pkg:/sprites/lost_cloud/lost-cloud-animation_02.png")
-	game.loadBitmap("lost_cloud_03", "pkg:/sprites/lost_cloud/lost-cloud-animation_03.png")
-	game.loadBitmap("lost_cloud_04", "pkg:/sprites/lost_cloud/lost-cloud-animation_04.png")
-	game.loadBitmap("lost_cloud_05", "pkg:/sprites/lost_cloud/lost-cloud-animation_05.png")
-
-
-
-	
-	' ############################# 
-
 	game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
 	game.loadBitmap("bg_earth", "pkg:/sprites/bg_earth.png")
+	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")
 	game.loadBitmap("shelfs_shelfs_left", "pkg:/sprites/shelfs_shelfs-left.png")
 	game.loadBitmap("shelfs_shelfs_right", "pkg:/sprites/shelfs_shelfs-right.png")
 
@@ -52,9 +29,14 @@ sub Main()
 	game.loadBitmap("boss_4", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-04.png")
 	game.loadBitmap("boss_5", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-05.png")
 
+	game.loadBitmap("lost_cloud_01", "pkg:/sprites/lost_cloud/lost-cloud-animation_01.png")
+	game.loadBitmap("lost_cloud_02", "pkg:/sprites/lost_cloud/lost-cloud-animation_02.png")
+	game.loadBitmap("lost_cloud_03", "pkg:/sprites/lost_cloud/lost-cloud-animation_03.png")
+	game.loadBitmap("lost_cloud_04", "pkg:/sprites/lost_cloud/lost-cloud-animation_04.png")
+	game.loadBitmap("lost_cloud_05", "pkg:/sprites/lost_cloud/lost-cloud-animation_05.png")
+
 	game.loadBitmap("unicorn_burned", "pkg:/sprites/unicorn_unicorn_burned.png")
-	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")
-	
+		
 	game.loadBitmap("lightning_1", "pkg:/sprites/lightning/koshkmyak-cloud_lightning.png")
 	game.loadBitmap("lightning_2", "pkg:/sprites/lightning/koshkmyak-cloud_lightning_copy.png")
 	game.loadBitmap("lightning_3", "pkg:/sprites/lightning/koshkmyak-cloud_lightning_copy_2.png")
@@ -81,15 +63,17 @@ sub Main()
 	
 	' ###
 	' ### load object
+	game.defineObject("libTweener", tweener)
+	game.defineObject("boss_animated_image", obj_boss_animated_image)
+	game.defineObject("catch_game_event", obj_catch_game_event)
+	game.defineObject("cloud_animated_image", obj_cloud_animated_image)
+	game.defineObject("clouds_position", obj_clouds_position)
+	game.defineObject("game_background", obj_game_background)
+	game.defineObject("lightning", obj_lightning)
 	game.defineObject("pause_handler", obj_pause_handler)
 	game.defineObject("score_handler", obj_score_handler)
 	game.defineObject("unicorn_position", obj_unicorn_position)
-	game.defineObject("clouds_position", obj_clouds_position)
-	game.defineObject("libTweener", tweener)
-	game.defineObject("catch_game_event", obj_catch_game_event)
-	game.defineObject("boss_animated_image", obj_boss_animated_image)
-	game.defineObject("game_background", obj_game_background)
-
+	
 	' ###
 	' ### initialize tools and controllers
 	game.tweener = game.createInstance("libTweener",{persistent:true})

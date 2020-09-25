@@ -27,8 +27,7 @@ function obj_lightning(object)
 				enabled: true,
 				loopAnimation: false,
 				LoopAction: false,
-				running: false,
-				Animate: invalid, ' The method that handles animation
+				running: false
 			})
 
 	end function

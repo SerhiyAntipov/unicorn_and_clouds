@@ -1,7 +1,6 @@
 function obj_clouds_position(object)
 
     object.onCreate = function(args)  
-
         
         ' ###   
         ' ### Create array clouds position
@@ -55,7 +54,7 @@ function obj_clouds_position(object)
 
         ' ###
         ' ### Render clouds 
-        m.renderEggs = function ()
+        m.renderClouds = function ()
 
             ' ### Create egg img object 
             cloud = m.game.getBitmap("cloud")
@@ -106,7 +105,7 @@ function obj_clouds_position(object)
                 end for 
             end for
         end function
-        m.renderEggs()
+        m.renderClouds()
  
         ' ### 
         ' ### Create clon all clouds img
@@ -192,7 +191,7 @@ function obj_clouds_position(object)
         ' ### 
         ' ### Function starts up to 3 lost clouds 
         ' ### If there are more than 3 lost clouds go to the "room_game_over" page
-        if m.game.scores["lose"] <= 4 then  
+        if m.game.scores["lose"] <= 5 then  
             if m.game.timer.TotalMilliseconds() >= m.game.speed
                 m.timerFunc(m.game.timer.TotalMilliseconds())
                 m.game.timer.mark()
@@ -218,15 +217,6 @@ function obj_clouds_position(object)
         ' ### 
         ' ### Catch game event
         m.game.createInstance("catch_game_event")
-    end function
-     
-    object.onButton = function(code as integer)
-    end function
-
-    object.onDrawBegin = function(canvas)
-    end function
-
-    object.onDrawEnd = function(canvas)
     end function
 
 end function

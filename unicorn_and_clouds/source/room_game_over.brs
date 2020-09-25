@@ -20,8 +20,6 @@ function room_game_over(object)
 		region = CreateObject("roRegion", boss_5, 0, 0, width, height)
 		m.addImage("boss_5", region,{ offset_x: 1280/2 - boss_5.GetWidth()/2, offset_y: 68})
 		
-		m.game.createInstance("boss_animated_image") ' NOT WORK !!!! 
-
 		' ### 
 		' ### Unicorn burned img
 		unicorn_burned = m.game.getBitmap("unicorn_burned")
@@ -39,7 +37,6 @@ function room_game_over(object)
 		m.addImage("lightning_3", region,{ offset_x:(1280-width)/2, offset_y:(720-height)/2 - 60})
 
 	end function
-
 
 	object.onDrawEnd = function(canvas)
 		DrawText(canvas, "Game Over Press OK to Play Again", canvas.GetWidth() / 2, canvas.GetHeight() - 80, m.game.font_SF_Digital_Readout, "center", &hae7987FF)	
