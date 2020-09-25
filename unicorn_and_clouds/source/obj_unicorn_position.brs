@@ -1,8 +1,8 @@
 function obj_unicorn_position(object)
 
     object.onCreate = function(args)
-        
-        m.game.game_background = m.game.createInstance("game_background") '### Move to room_game_play 
+ 
+        m.game.createInstance("game_background") '### Move to room_game_play 
         
         '###
         '### Create array unicorn posistion
@@ -60,7 +60,6 @@ function obj_unicorn_position(object)
         m.basket_right_top = m.getImage("basket_right_top_image")
         m.basket_right_bottom = m.getImage("basket_right_bottom_image")
 
-
     end function
   
     object.onButton = function(code as integer)
@@ -78,13 +77,6 @@ function obj_unicorn_position(object)
             m.game.unicorn_position.position_left = false
         end if
 	end function
-
-    object.onUpdate = function(dt) 
-
-    end function
-
-    object.onDrawBegin = function(canvas)      
-    end function  
 
     object.onDrawEnd = function(canvas)
        

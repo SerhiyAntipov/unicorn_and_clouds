@@ -18,6 +18,17 @@ sub Main()
 	game.loadBitmap("chick_left_04", "pkg:/sprites/chick_left_04.png")
 	game.loadBitmap("egg_broken_right", "pkg:/sprites/egg_broken_right.png")
 	game.loadBitmap("egg_broken_left", "pkg:/sprites/egg_broken_left.png")
+
+
+
+	game.loadBitmap("lost_cloud_01", "pkg:/sprites/lost_cloud/lost-cloud-animation_01.png")
+	game.loadBitmap("lost_cloud_02", "pkg:/sprites/lost_cloud/lost-cloud-animation_02.png")
+	game.loadBitmap("lost_cloud_03", "pkg:/sprites/lost_cloud/lost-cloud-animation_03.png")
+	game.loadBitmap("lost_cloud_04", "pkg:/sprites/lost_cloud/lost-cloud-animation_04.png")
+	game.loadBitmap("lost_cloud_05", "pkg:/sprites/lost_cloud/lost-cloud-animation_05.png")
+
+
+
 	
 	' ############################# 
 
@@ -48,8 +59,6 @@ sub Main()
 	game.loadBitmap("lightning_2", "pkg:/sprites/lightning/koshkmyak-cloud_lightning_copy.png")
 	game.loadBitmap("lightning_3", "pkg:/sprites/lightning/koshkmyak-cloud_lightning_copy_2.png")
 
-
-
 	' ###
 	' ### load sound
 	game.loadSound("cloud_basket_wav", "pkg:/sounds/cloud_basket.wav")
@@ -63,13 +72,12 @@ sub Main()
 	' ###
 	' ### load font 
 	game.loadFont("font_SF_Digital_Readout", "SF Digital Readout", 36, false, false)
-	game.loadFont("font_happy_sans", "Happy Sans", 40, false, false)
+	
 	' ###
 	' ### load room
 	game.defineRoom("room_game_start", room_game_start)
 	game.defineRoom("room_game_play", room_game_play)
 	game.defineRoom("room_game_over", room_game_over)
-	
 	
 	' ###
 	' ### load object
@@ -79,9 +87,7 @@ sub Main()
 	game.defineObject("clouds_position", obj_clouds_position)
 	game.defineObject("libTweener", tweener)
 	game.defineObject("catch_game_event", obj_catch_game_event)
-	game.defineObject("egg_animated_image", obj_egg_animated_image)
 	game.defineObject("boss_animated_image", obj_boss_animated_image)
-	game.defineObject("rainbow", obj_rainbow)
 	game.defineObject("game_background", obj_game_background)
 
 	' ###
