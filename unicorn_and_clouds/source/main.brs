@@ -5,8 +5,6 @@ sub Main()
 	game = new_game(1280, 720, true) ' This initializes the game engine
 	m.game = game
 	
-	m.game.playSound("game_music_wav", 100)
-
 	' ###
 	' ### load bitmap
 	
@@ -27,7 +25,6 @@ sub Main()
 	game.loadBitmap("cloud_2", "pkg:/sprites/clouds/clouds-little_little-cloud-02.png")
 	game.loadBitmap("cloud_3", "pkg:/sprites/clouds/clouds-little_little-cloud-03.png")
 	game.loadBitmap("cloud_4", "pkg:/sprites/clouds/clouds-little_little-cloud-04.png")
-	' game.loadBitmap("cloud", "pkg:/sprites/clouds/clouds-little_little-cloud-03.png")
 		
 	game.loadBitmap("boss_1", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-01.png")
 	game.loadBitmap("boss_2", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-02.png")
@@ -83,6 +80,10 @@ sub Main()
 	' ###
 	' ### initialize tools and controllers
 	game.tweener = game.createInstance("libTweener",{persistent:true})
+
+	' ###
+	' ### play sound
+	game.playSound("game_music_wav", 100)
 
 	' ###
 	' ### sellect room
