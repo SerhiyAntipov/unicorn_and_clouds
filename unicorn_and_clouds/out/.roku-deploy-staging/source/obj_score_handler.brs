@@ -97,9 +97,7 @@ function obj_score_handler(object)
 
         ' ### 
         ' ### Rewriting game speed
-        if m.game.scores.eggs > 250 then
-            m.game.speed = 400
-        elseif m.game.scores.eggs > 225 then
+        if m.game.scores.eggs > 225 then
             m.game.speed = 500
         elseif m.game.scores.eggs > 200 then
             m.game.speed = 600
@@ -146,9 +144,8 @@ function obj_score_handler(object)
         else if m.game.scores["lose"] = 4 then 
             m.game.animatedimage_boss.index = 4
         else if m.game.scores["lose"] = 5 then 
-            m.game.speed += 500
+            m.game.speed = 1500
             ' m.game.createInstance("lightning")
-   
         lightning_1 = m.game.getBitmap("lightning_1")
 		lightning_2 = m.game.getBitmap("lightning_2")
 		lightning_3 = m.game.getBitmap("lightning_3")
@@ -165,7 +162,7 @@ function obj_score_handler(object)
 				index: 0
 				offset_x: 1280/2 - lightning_1.GetWidth()/2,
 				offset_y: 720/2 - lightning_1.GetHeight()/2 - 60, 
-				animation_speed: 1000,
+				animation_speed: 1500,
 				animation_tween: "LinearTween",
 				alpha: 255,
 				enabled: true,
