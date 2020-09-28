@@ -11,7 +11,7 @@ sub Main()
 
 	' ###
 	' ### load bitmap
-		game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
+	game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
 	game.loadBitmap("bg_earth", "pkg:/sprites/bg_earth.png")
 	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")
 	game.loadBitmap("shelfs_shelfs_left", "pkg:/sprites/shelfs_shelfs-left.png")
@@ -55,6 +55,7 @@ sub Main()
 	game.loadSound("pause_on_wav", "pkg:/sounds/pause_on.wav")
 	game.loadSound("cloud_lose_wav", "pkg:/sounds/sfx_unicorn_cloud_fall.wav")
 	game.loadSound("game_over_wav", "pkg:/sounds/sfx_unicorn_gameover.wav")
+	game.loadSound("game_over_01_wav", "pkg:/sounds/sfx_unicorn_gameover_01.wav")
 	game.loadSound("game_music_wav", "pkg:/sounds/sfx_unicorn_music5.wav")
 
 	' ###

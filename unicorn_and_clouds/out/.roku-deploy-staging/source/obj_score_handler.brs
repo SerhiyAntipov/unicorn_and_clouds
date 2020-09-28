@@ -165,7 +165,7 @@ function obj_score_handler(object)
 				index: 0
 				offset_x: 1280/2 - lightning_1.GetWidth()/2,
 				offset_y: 720/2 - lightning_1.GetHeight()/2 - 60, 
-				animation_speed: 1500,
+				animation_speed: 1000,
 				animation_tween: "LinearTween",
 				alpha: 255,
 				enabled: true,
@@ -174,7 +174,7 @@ function obj_score_handler(object)
 				running: false
             })
             
-            m.game.playSound("game_over_wav", 100)
+            m.game.playSound("game_over_01_wav", 100)
         end if
 
     end function
