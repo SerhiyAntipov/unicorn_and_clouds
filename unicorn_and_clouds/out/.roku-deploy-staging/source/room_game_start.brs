@@ -22,7 +22,6 @@ function room_game_start(object)
 		region = CreateObject("roRegion", boss_1, 0, 0, width, height)
 		m.addImage("boss_1", region,{ offset_x: 1280/2 - boss_1.GetWidth()/2, offset_y: 68})
 
-
 		' ### 
 		' ### Unicorn burned img
 		unicorn_left = m.game.getBitmap("unicorn_left")
@@ -32,9 +31,6 @@ function room_game_start(object)
 		m.addImage("unicorn_left", region,{ offset_x:(1280-width)/2 + 25, offset_y:(720-height)/2 + 100})
 		
 	end function
-
-
-
 
 	object.onDrawEnd = function(canvas)
 		DrawText(canvas, "Press OK to Play", canvas.GetWidth() / 2, canvas.GetHeight() - 80, m.game.font_SF_Digital_Readout, "center",  &hae7987FF)	

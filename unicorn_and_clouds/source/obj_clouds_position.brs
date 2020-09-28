@@ -11,6 +11,16 @@ function obj_clouds_position(object)
             slide_right_bottom: [0, 0, 0, 0]
         }
 
+        ' ### 
+        ' ### [0,4] first number Cloud yes/no 
+        ' ### [0,4] second number Cloud color
+        ' m.game.clouds_position_array = {
+        '     slide_left_top: [[0,1], [0,4], [0,1], [0,2]]
+        '     slide_left_bottom: [[0,1], [0,4], [0,1], [0,2]]
+        '     slide_right_top: [[0,1], [0,4], [0,1], [0,2]]
+        '     slide_right_bottom: [[0,1], [0,4], [0,1], [0,2]]
+        ' }
+
         ' ###
         ' ### Function add random egg 
         m.addRandomEgg = function ()
@@ -56,9 +66,15 @@ function obj_clouds_position(object)
         ' ### Render clouds 
         m.renderClouds = function ()
 
-            ' ### Create egg img object 
-            cloud = m.game.getBitmap("cloud")
-            region = CreateObject("roRegion", cloud, 0, 0, cloud.GetWidth(), cloud.GetHeight())
+            ' ### Create All color clouds img object 
+            cloud_1 = m.game.getBitmap("cloud_1")
+            cloud_2 = m.game.getBitmap("cloud_2")
+            cloud_3 = m.game.getBitmap("cloud_3")
+            cloud_4 = m.game.getBitmap("cloud_4")
+            region_1 = CreateObject("roRegion", cloud_1, 0, 0, cloud_1.GetWidth(), cloud_1.GetHeight())
+            region_2 = CreateObject("roRegion", cloud_2, 0, 0, cloud_2.GetWidth(), cloud_2.GetHeight())
+            region_3 = CreateObject("roRegion", cloud_3, 0, 0, cloud_3.GetWidth(), cloud_3.GetHeight())
+            region_4 = CreateObject("roRegion", cloud_4, 0, 0, cloud_4.GetWidth(), cloud_4.GetHeight())
 
             ' ### Default offset value 
             offset_x_value = ""
@@ -101,7 +117,20 @@ function obj_clouds_position(object)
                             rotation_value = item.value
                         end if
                     end for
-                    m.addImage( name_img.ToStr() + "_" + i.ToStr(), region,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+            
+
+                    m.game.random_color = RND(4)         
+                    if m.game.random_color = 1 then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if m.game.random_color = 2 then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if m.game.random_color = 3 then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if m.game.random_color = 4 then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    end if
+                                
                 end for 
             end for
         end function

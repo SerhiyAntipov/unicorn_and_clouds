@@ -1,6 +1,7 @@
 function room_game_play(object)
-
+		
 	object.onCreate = function(args)
+		m.game.playSound("game_music_wav", 100)
 		
 		'### 
 		'### Get fonts 

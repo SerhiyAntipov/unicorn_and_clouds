@@ -5,6 +5,8 @@ sub Main()
 	game = new_game(1280, 720, true) ' This initializes the game engine
 	m.game = game
 	
+	m.game.playSound("game_music_wav", 100)
+
 	' ###
 	' ### load bitmap
 	
@@ -21,7 +23,11 @@ sub Main()
 	game.loadBitmap("basket_right_bottom", "pkg:/sprites/basket_right_bottom.png")
 	game.loadBitmap("basket_right_top", "pkg:/sprites/basket_right_top.png")
 	
-	game.loadBitmap("cloud", "pkg:/sprites/clouds/clouds-little_little-cloud-03.png")
+	game.loadBitmap("cloud_1", "pkg:/sprites/clouds/clouds-little_little-cloud-01.png")
+	game.loadBitmap("cloud_2", "pkg:/sprites/clouds/clouds-little_little-cloud-02.png")
+	game.loadBitmap("cloud_3", "pkg:/sprites/clouds/clouds-little_little-cloud-03.png")
+	game.loadBitmap("cloud_4", "pkg:/sprites/clouds/clouds-little_little-cloud-04.png")
+	' game.loadBitmap("cloud", "pkg:/sprites/clouds/clouds-little_little-cloud-03.png")
 		
 	game.loadBitmap("boss_1", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-01.png")
 	game.loadBitmap("boss_2", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-02.png")
@@ -44,12 +50,12 @@ sub Main()
 	' ###
 	' ### load sound
 	game.loadSound("cloud_basket_wav", "pkg:/sounds/cloud_basket.wav")
-	game.loadSound("egg_chip_wav", "pkg:/sounds/egg_chip.wav")
-	game.loadSound("cloud_lose_wav", "pkg:/sounds/cloud_lose.wav")
 	game.loadSound("cloud_move_wav", "pkg:/sounds/cloud_move.wav")
 	game.loadSound("pause_off_wav", "pkg:/sounds/pause_off.wav")
 	game.loadSound("pause_on_wav", "pkg:/sounds/pause_on.wav")
-	game.loadSound("game_over_wav", "pkg:/sounds/game_over.wav")
+	game.loadSound("cloud_lose_wav", "pkg:/sounds/sfx_unicorn_cloud_fall.wav")
+	game.loadSound("game_over_wav", "pkg:/sounds/sfx_unicorn_gameover.wav")
+	game.loadSound("game_music_wav", "pkg:/sounds/sfx_unicorn_music5.wav")
 
 	' ###
 	' ### load font 
