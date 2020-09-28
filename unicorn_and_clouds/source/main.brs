@@ -6,9 +6,12 @@ sub Main()
 	m.game = game
 	
 	' ###
+	' ### Play music
+	m.game.musicPlay("pkg:/sounds/sfx_unicorn_music5.wav", true) 	
+
+	' ###
 	' ### load bitmap
-	
-	game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
+		game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
 	game.loadBitmap("bg_earth", "pkg:/sprites/bg_earth.png")
 	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")
 	game.loadBitmap("shelfs_shelfs_left", "pkg:/sprites/shelfs_shelfs-left.png")
@@ -80,11 +83,7 @@ sub Main()
 	' ###
 	' ### initialize tools and controllers
 	game.tweener = game.createInstance("libTweener",{persistent:true})
-
-	' ###
-	' ### play sound
-	game.playSound("game_music_wav", 100)
-
+	
 	' ###
 	' ### sellect room
 	game.changeRoom("room_game_start")

@@ -9,10 +9,12 @@ function obj_pause_handler(object)
 		if code = 13 then
 				if not m.game.isPaused() then
 					m.game.Pause()
+					m.game.musicPause()
 					m.game.timer.mark()
 					m.game.playSound("pause_on_wav", 100)
 				elseif m.game.isPaused() then 
 					m.game.Resume()
+					m.game.musicResume()
 					m.game.timer.mark()
 					m.game.playSound("pause_off_wav", 100)
 				end if

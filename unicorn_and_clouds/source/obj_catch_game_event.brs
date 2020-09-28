@@ -44,17 +44,4 @@ function obj_catch_game_event(object)
 		end for
 	end function
 
-	object.onUpdate = function(dt)		
-	end function
-
-	object.onDrawBegin = function(canvas)	
-
-	end function
-
-	object.onDrawEnd = function(canvas)
-	end function
-	
-	object.onButton = function(button)
-	end function
-
 end function

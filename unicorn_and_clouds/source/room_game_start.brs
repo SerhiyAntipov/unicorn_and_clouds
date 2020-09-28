@@ -1,7 +1,7 @@
 function room_game_start(object)
 
 	object.onCreate = function(args)
-
+		
 		'### 
 		'### get fonts 
 		m.game.font_SF_Digital_Readout = m.game.getFont("font_SF_Digital_Readout") 

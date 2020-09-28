@@ -146,7 +146,7 @@ function obj_score_handler(object)
         else if m.game.scores["lose"] = 4 then 
             m.game.animatedimage_boss.index = 4
         else if m.game.scores["lose"] = 5 then 
-
+            m.game.speed += 500
             ' m.game.createInstance("lightning")
    
         lightning_1 = m.game.getBitmap("lightning_1")
@@ -172,7 +172,9 @@ function obj_score_handler(object)
 				loopAnimation: false,
 				LoopAction: false,
 				running: false
-			})
+            })
+            
+            m.game.playSound("game_over_wav", 100)
         end if
 
     end function

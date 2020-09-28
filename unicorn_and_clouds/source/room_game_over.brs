@@ -1,10 +1,11 @@
 function room_game_over(object)
 
 	object.onCreate = function(args)	
-
+		
 		m.game.started = false
-
+		m.game.musicPause()
 		m.game.playSound("game_over_wav", 100)
+				
 		
 		' ### 
 		' ### Background img
@@ -49,6 +50,7 @@ function room_game_over(object)
 			m.game.End()
 		end if
 		if code = 6 then
+			m.game.musicResume()
 			m.game.changeRoom("room_game_play")
 		end if
 	end function
