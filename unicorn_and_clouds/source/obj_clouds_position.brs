@@ -1,7 +1,8 @@
 function obj_clouds_position(object)
 
     object.onCreate = function(args)  
-        
+                
+        m.game.imgArray = []
         ' ###   
         ' ### Create array clouds position
         m.game.clouds_position_array = {
@@ -12,27 +13,74 @@ function obj_clouds_position(object)
         }
 
         ' ###
-        ' ### Function add random egg 
-        m.addRandomEgg = function ()
+        ' ### Function add random Cloud         
+        m.game.random_number = 0
+        m.game.random_number_edited = 0
+        m.addRandomClouds = function ()
 
-            m.game.random_number = RND(4)
-            m.game.random_number = m.game.random_number-1
+            random_number = RND(4)  
+            
+            if m.game.scores.eggs < 10 then
+            ' ###
+            ' ### Light level   
+                if random_number = 1 or random_number = 2 and m.game.random_number_edited <> 2 then
+                    m.game.random_number = 2
+                    m.game.random_number_edited = 2
+                else if random_number = 1 or random_number = 2 and m.game.random_number_edited = 2 then
+                    m.game.random_number = 4
+                    m.game.random_number_edited = 4
+                end if 
+
+                if random_number = 3 or random_number = 4 and m.game.random_number_edited <> 4 then
+                    m.game.random_number = 4
+                    m.game.random_number_edited = 4
+                else if random_number = 3 or random_number = 4 and m.game.random_number_edited = 4 then
+                    m.game.random_number = 2
+                    m.game.random_number_edited = 2
+                end if 
+
+            else if m.game.scores.eggs <= 50 then
+            ' ###
+            ' ### Medium level      
+                m.game.random_number = random_number
+             
+            else if m.game.scores.eggs <= 100 then
+            ' ###
+            ' ### Hard level 
+                if m.game.random_number = random_number then
+                    m.game.random_number = RND(4)
+                else 
+                    m.game.random_number = random_number
+                end if  
+            end if
+ 
+            ' random_number = RND(16)
+            ' if m.game.random_number <= 4 then
+            '     m.game.random_slide = "slide_left_top"
+            ' elseif m.game.random_number <= 8 then
+            '     m.game.random_slide = "slide_left_bottom"
+            ' elseif m.game.random_number <= 12 then
+            '     m.game.random_slide = "slide_right_top"
+            ' elseif m.game.random_number <= 16 then
+            '     m.game.random_slide = "slide_right_bottom"
+            ' end if
+
 
             ' ###
             ' ### Random number = slide position
-            if m.game.random_number = 0 then
+            if m.game.random_number <= 1 then
                 m.game.random_slide = "slide_left_top"
-            else if m.game.random_number = 1 then
+            elseif m.game.random_number <= 2 then
                 m.game.random_slide = "slide_left_bottom"
-            else if m.game.random_number = 2 then
+            elseif m.game.random_number <= 3 then
                 m.game.random_slide = "slide_right_top"
-            else if m.game.random_number = 3 then
+            elseif m.game.random_number <= 4 then
                 m.game.random_slide = "slide_right_bottom"
             end if
 
             for each item in m.game.clouds_position_array.Items()
                 if m.game.random_slide = item.key then
-                    m.game.clouds_position_array.[item.key].Unshift(1)
+                    m.game.clouds_position_array.[item.key].Unshift(m.game.random_number)
                     m.game.clouds_position_array.[item.key].Pop()
                 else
                     m.game.clouds_position_array.[item.key].Unshift(0)
@@ -48,24 +96,21 @@ function obj_clouds_position(object)
         clouds_position_link_json = "pkg:/config/clouds_coordinates.json"
 		m.game.clouds_position_img = ParseJSON(ReadAsciiFile(clouds_position_link_json))
 
-        ' ### 
-        ' ### Variable for the sounds of the first 5 egg addition cycles
-        m.cycle = 0
-
         ' ###
         ' ### Render clouds 
         m.renderClouds = function ()
-
+            ' ### 
             ' ### Create All color clouds img object 
             cloud_1 = m.game.getBitmap("cloud_1")
             cloud_2 = m.game.getBitmap("cloud_2")
             cloud_3 = m.game.getBitmap("cloud_3")
             cloud_4 = m.game.getBitmap("cloud_4")
-            region_1 = CreateObject("roRegion", cloud_1, 0, 0, cloud_1.GetWidth(), cloud_1.GetHeight())
-            region_2 = CreateObject("roRegion", cloud_2, 0, 0, cloud_2.GetWidth(), cloud_2.GetHeight())
-            region_3 = CreateObject("roRegion", cloud_3, 0, 0, cloud_3.GetWidth(), cloud_3.GetHeight())
-            region_4 = CreateObject("roRegion", cloud_4, 0, 0, cloud_4.GetWidth(), cloud_4.GetHeight())
-
+            m.game.region_1 = CreateObject("roRegion", cloud_1, 0, 0, cloud_1.GetWidth(), cloud_1.GetHeight())
+            m.game.region_2 = CreateObject("roRegion", cloud_2, 0, 0, cloud_2.GetWidth(), cloud_2.GetHeight())
+            m.game.region_3 = CreateObject("roRegion", cloud_3, 0, 0, cloud_3.GetWidth(), cloud_3.GetHeight())
+            m.game.region_4 = CreateObject("roRegion", cloud_4, 0, 0, cloud_4.GetWidth(), cloud_4.GetHeight())
+                
+            ' ### 
             ' ### Default offset value 
             offset_x_value = ""
             offset_y_value = ""
@@ -107,20 +152,35 @@ function obj_clouds_position(object)
                             rotation_value = item.value
                         end if
                     end for
-                    ' m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-            
-
-                    m.game.random_color = RND(4)         
-                    if m.game.random_color = 1 then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if m.game.random_color = 2 then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if m.game.random_color = 3 then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if m.game.random_color = 4 then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                          
+                    ' ### 
+                    ' ### One color select any from m.game.region_1-4
+                    ' m.addImage( name_img.ToStr() + "_" + i.ToStr() , m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                 
+                    ' ### 
+                    ' ### Random color
+                    ' m.game.random_color = RND(4)         
+                    ' if m.game.random_color = 1 then
+                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' else if m.game.random_color = 2 then
+                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' else if m.game.random_color = 3 then
+                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' else if m.game.random_color = 4 then
+                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' end if
+                    
+                    ' ### 
+                    ' ### Other color on slides
+                    if item_key = "slide_left_top" then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if item_key = "slide_left_bottom" then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if item_key = "slide_right_top" then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if item_key = "slide_right_bottom" then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
                     end if
-                                
                 end for 
             end for
         end function
@@ -150,10 +210,9 @@ function obj_clouds_position(object)
         end function
         m.cloneCloudsImg()
 
-
         ' ### 
         ' ### Draw active clouds
-        m.drawActiveEggs = function ()
+        m.drawActiveClouds = function ()
 
             ' ### For each 1 leyer 
             for each item in m.game.clouds_position_array.Items() 
@@ -165,7 +224,7 @@ function obj_clouds_position(object)
                 for  i = 0 to m.game.clouds_position_array[item_key].Count()-1 step i + 1 
                                        
                     ' ### Visuble clouds equal "1" in array "m.game.clouds_position_array"
-                    if m.game.clouds_position_array[item_key][i] = 1 then
+                    if m.game.clouds_position_array[item_key][i] > 0 then
                         m.allCloudsImg[item_key][i]["alpha"] = 255
                     else 
                         m.allCloudsImg[item_key][i]["alpha"] = 0
@@ -190,8 +249,8 @@ function obj_clouds_position(object)
         ' queue = Sequence(m)
 		' queue.addAction(DelayTime(m, m.game.speed))
         ' queue.addAction(CallFunc(m, {param:"optional data"}, function(host,data)
-        '     host.addRandomEgg()
-        '     host.drawActiveEggs()
+        '     host.addRandomClouds()
+        '     host.drawActiveClouds()
         ' end function))
 
         ' LoopAction(m,queue).Run()
@@ -208,8 +267,8 @@ function obj_clouds_position(object)
     object.onUpdate = function(dt)
 
         ' ### 
-        ' ### Function starts up to 3 lost clouds 
-        ' ### If there are more than 3 lost clouds go to the "room_game_over" page
+        ' ### Function starts up to 5 lost clouds 
+        ' ### If there are more than 5 lost clouds go to the "room_game_over" page
         if m.game.scores["lose"] <= 5 then  
             if m.game.timer.TotalMilliseconds() >= m.game.speed
                 m.timerFunc(m.game.timer.TotalMilliseconds())
@@ -223,15 +282,10 @@ function obj_clouds_position(object)
 
     object.timerFunc = function(elapsed)
         ' print "call timerFunc after: " ; elapsed
-        m.addRandomEgg()
-        m.drawActiveEggs()
+        m.addRandomClouds()
+        m.drawActiveClouds()
        
-        ' ### 
-        ' ### For the sounds of the first 5 egg addition cycles
-        if m.cycle < 5 then
-            m.game.playSound("cloud_move_wav", 100)
-            m.cycle++
-        endif
+        m.game.playSound("cloud_move_wav", 100)
 
         ' ### 
         ' ### Catch game event
