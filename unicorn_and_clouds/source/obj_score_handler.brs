@@ -160,7 +160,7 @@ function obj_score_handler(object)
 			m.game.lightning_3
 			],{
 				index: 0
-				offset_x: 1280/2 - lightning_1.GetWidth()/2,
+				offset_x: 1280/2 - lightning_1.GetWidth()/2 + 10,
 				offset_y: 720/2 - lightning_1.GetHeight()/2 - 60, 
 				animation_speed: 1500,
 				animation_tween: "LinearTween",

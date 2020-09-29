@@ -11,16 +11,6 @@ function obj_clouds_position(object)
             slide_right_bottom: [0, 0, 0, 0]
         }
 
-        ' ### 
-        ' ### [0,4] first number Cloud yes/no 
-        ' ### [0,4] second number Cloud color
-        ' m.game.clouds_position_array = {
-        '     slide_left_top: [[0,1], [0,4], [0,1], [0,2]]
-        '     slide_left_bottom: [[0,1], [0,4], [0,1], [0,2]]
-        '     slide_right_top: [[0,1], [0,4], [0,1], [0,2]]
-        '     slide_right_bottom: [[0,1], [0,4], [0,1], [0,2]]
-        ' }
-
         ' ###
         ' ### Function add random egg 
         m.addRandomEgg = function ()

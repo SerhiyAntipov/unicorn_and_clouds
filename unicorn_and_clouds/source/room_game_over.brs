@@ -31,11 +31,11 @@ function room_game_over(object)
 
 		' ### 
 		' ### Unicorn burned img
-		lightning_3 = m.game.getBitmap("lightning_3")
+		lightning_3 = m.game.getBitmap("lightning_1")
 		width = lightning_3.GetWidth()
 		height = lightning_3.GetHeight()
 		region = CreateObject("roRegion", lightning_3, 0, 0, width, height)
-		m.addImage("lightning_3", region,{ offset_x:(1280-width)/2, offset_y:(720-height)/2 - 60})
+		m.addImage("lightning_3", region,{ offset_x:(1280-width)/2 + 10, offset_y:(720-height)/2 - 60})
 
 	end function
 
