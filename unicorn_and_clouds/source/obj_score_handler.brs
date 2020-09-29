@@ -97,15 +97,15 @@ function obj_score_handler(object)
 
         ' ### 
         ' ### Rewriting game speed
-        if m.game.scores.eggs > 225 then
+        if m.game.scores.eggs >= 225 then
             m.game.speed = 500
-        elseif m.game.scores.eggs > 200 then
+        elseif m.game.scores.eggs >= 200 then
             m.game.speed = 600
-        elseif m.game.scores.eggs > 175 then
+        elseif m.game.scores.eggs >= 175 then
             m.game.speed = 700
-        elseif m.game.scores.eggs > 150 then
+        elseif m.game.scores.eggs >= 150 then
             m.game.speed = 800
-        elseif m.game.scores.eggs > 60 then
+        elseif m.game.scores.eggs >= 60 then
             m.game.speed = 900
         elseif m.game.scores.eggs >= 50 then
             m.game.speed = 1000

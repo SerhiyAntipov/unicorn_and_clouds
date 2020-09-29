@@ -39,19 +39,22 @@ function obj_clouds_position(object)
                     m.game.random_number_edited = 2
                 end if 
 
-            else if m.game.scores.eggs <= 50 then
+            else if m.game.scores.eggs < 50 then
             ' ###
             ' ### Medium level      
                 m.game.random_number = random_number
-             
-            else if m.game.scores.eggs <= 100 then
+
+            else if m.game.scores.eggs >= 50 then
             ' ###
             ' ### Hard level 
-                if m.game.random_number = random_number then
-                    m.game.random_number = RND(4)
-                else 
+                if random_number <> m.game.random_number_edited then 
                     m.game.random_number = random_number
-                end if  
+                    m.game.random_number_edited = random_number
+                else if random_number = m.game.random_number_edited then
+                    random_number = RND(4)
+                    m.game.random_number = random_number
+                    m.game.random_number_edited = random_number
+                end if 
             end if
  
             ' random_number = RND(16)
@@ -177,9 +180,9 @@ function obj_clouds_position(object)
                     else if item_key = "slide_left_bottom" then
                         m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
                     else if item_key = "slide_right_top" then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if item_key = "slide_right_bottom" then
                         m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    else if item_key = "slide_right_bottom" then
+                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
                     end if
                 end for 
             end for
