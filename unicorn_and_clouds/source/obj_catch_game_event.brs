@@ -33,8 +33,7 @@ function obj_catch_game_event(object)
 				elseif  item_key = "slide_right_top" and m.game.unicorn_position["position_right"] = false then
 					m.game.postGameEvent("lose", {side: "right"})
 				elseif  item_key = "slide_right_top" and m.game.unicorn_position["position_right"] = true and m.game.unicorn_position["position_top"] = false  then
-					m.game.postGameEvent("lose", {side: "right"})
-					
+					m.game.postGameEvent("lose", {side: "right"})	
 				elseif  item_key = "slide_right_bottom" and m.game.unicorn_position["position_right"] = false then
 					m.game.postGameEvent("lose", {side: "right"})
 				elseif  item_key = "slide_right_bottom" and m.game.unicorn_position["position_right"] = true and m.game.unicorn_position["position_bottom"] = false then

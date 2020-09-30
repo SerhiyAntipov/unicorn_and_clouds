@@ -16,68 +16,51 @@ function obj_clouds_position(object)
         ' ### Function add random Cloud         
         m.game.random_number = 0
         m.game.random_number_edited = 0
+        
         m.addRandomClouds = function ()
+ 
+            m.game.random_number = RND(16)
+            random_number = m.game.random_number
 
-            random_number = RND(4)  
-            
-            if m.game.scores.eggs < 10 then
-            ' ###
-            ' ### Light level   
-                if random_number = 1 or random_number = 2 and m.game.random_number_edited <> 2 then
-                    m.game.random_number = 2
-                    m.game.random_number_edited = 2
-                else if random_number = 1 or random_number = 2 and m.game.random_number_edited = 2 then
-                    m.game.random_number = 4
-                    m.game.random_number_edited = 4
-                end if 
-
-                if random_number = 3 or random_number = 4 and m.game.random_number_edited <> 4 then
-                    m.game.random_number = 4
-                    m.game.random_number_edited = 4
-                else if random_number = 3 or random_number = 4 and m.game.random_number_edited = 4 then
-                    m.game.random_number = 2
-                    m.game.random_number_edited = 2
-                end if 
-
-            else if m.game.scores.eggs < 50 then
-            ' ###
-            ' ### Medium level      
-                m.game.random_number = random_number
-
-            else if m.game.scores.eggs >= 50 then
-            ' ###
-            ' ### Hard level 
+            if m.game.random_number MOD 4 <> 0 then
+                random_number_qarter = FIX (m.game.random_number/4)+1 
+            else
+                random_number_qarter = FIX (m.game.random_number/4)
+            end if    
+        
+            if m.game.scores.eggs <= 10 then  
+                ' ###
+                ' ### Light level 
+                if random_number_qarter = 1 or random_number_qarter = 3  then
+                    m.game.random_number = random_number + 4
+                    m.game.random_number_edited = random_number + 4
+                end if        
+            else if m.game.scores.eggs <= 20 then
+                ' ###
+                ' ### Medium level      
+                m.game.random_number_edited = random_number
+            else if m.game.scores.eggs <= 500 then
+                ' ###
+                ' ### Hard level 
                 if random_number <> m.game.random_number_edited then 
-                    m.game.random_number = random_number
                     m.game.random_number_edited = random_number
                 else if random_number = m.game.random_number_edited then
-                    random_number = RND(4)
-                    m.game.random_number = random_number
-                    m.game.random_number_edited = random_number
+                    random_temp = RND(16)
+                    m.game.random_number = random_temp
+                    m.game.random_number_edited = random_temp
                 end if 
             end if
- 
-            ' random_number = RND(16)
-            ' if m.game.random_number <= 4 then
-            '     m.game.random_slide = "slide_left_top"
-            ' elseif m.game.random_number <= 8 then
-            '     m.game.random_slide = "slide_left_bottom"
-            ' elseif m.game.random_number <= 12 then
-            '     m.game.random_slide = "slide_right_top"
-            ' elseif m.game.random_number <= 16 then
-            '     m.game.random_slide = "slide_right_bottom"
-            ' end if
 
 
             ' ###
             ' ### Random number = slide position
-            if m.game.random_number <= 1 then
+            if m.game.random_number <= 4 then
                 m.game.random_slide = "slide_left_top"
-            elseif m.game.random_number <= 2 then
+            elseif m.game.random_number <= 8 then
                 m.game.random_slide = "slide_left_bottom"
-            elseif m.game.random_number <= 3 then
+            elseif m.game.random_number <= 12 then
                 m.game.random_slide = "slide_right_top"
-            elseif m.game.random_number <= 4 then
+            elseif m.game.random_number <=16 then
                 m.game.random_slide = "slide_right_bottom"
             end if
 
@@ -157,33 +140,9 @@ function obj_clouds_position(object)
                     end for
                           
                     ' ### 
-                    ' ### One color select any from m.game.region_1-4
-                    ' m.addImage( name_img.ToStr() + "_" + i.ToStr() , m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' ### One selected instant color  any from m.game.region_1-4
+                    m.addImage( name_img.ToStr() + "_" + i.ToStr() , m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
                  
-                    ' ### 
-                    ' ### Random color
-                    ' m.game.random_color = RND(4)         
-                    ' if m.game.random_color = 1 then
-                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    ' else if m.game.random_color = 2 then
-                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    ' else if m.game.random_color = 3 then
-                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    ' else if m.game.random_color = 4 then
-                    '     m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    ' end if
-                    
-                    ' ### 
-                    ' ### Other color on slides
-                    if item_key = "slide_left_top" then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if item_key = "slide_left_bottom" then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_2,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if item_key = "slide_right_top" then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_4,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    else if item_key = "slide_right_bottom" then
-                        m.addImage( name_img.ToStr() + "_" + i.ToStr(), m.game.region_3,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
-                    end if
                 end for 
             end for
         end function
@@ -229,6 +188,26 @@ function obj_clouds_position(object)
                     ' ### Visuble clouds equal "1" in array "m.game.clouds_position_array"
                     if m.game.clouds_position_array[item_key][i] > 0 then
                         m.allCloudsImg[item_key][i]["alpha"] = 255
+
+                        ' ###
+                        ' ### Moving the position of the colored cloud
+                        cloudsColor = m.game.clouds_position_array[item_key][i]
+                        
+                        if (cloudsColor + 3) MOD 4 = 0 then
+                            m.allCloudsImg[item_key][i].region = m.game.region_1
+                        end if
+                        if (cloudsColor + 2) MOD 4 = 0 then
+                            m.allCloudsImg[item_key][i].region = m.game.region_2
+                        end if
+                        if (cloudsColor + 1) MOD 4 = 0 then
+                            m.allCloudsImg[item_key][i].region = m.game.region_3
+                        end if
+                        if cloudsColor MOD 4 = 0 then
+                        ' if cloudsColor = 4 or cloudsColor = 8 or cloudsColor = 12 or cloudsColor = 16  then
+                            m.allCloudsImg[item_key][i].region = m.game.region_4
+                        end if
+                        ' ###
+
                     else 
                         m.allCloudsImg[item_key][i]["alpha"] = 0
                     end if
