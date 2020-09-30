@@ -21,30 +21,21 @@ function obj_clouds_position(object)
             random_number = 0
         
             if m.game.random_number = 0 then
-                m.game.random_number = RND(16)
-                random_number = m.game.random_number
+                random_number = RND(16)
                 m.game.random_number = RND(16)
             else 
                 random_number = m.game.random_number
                 m.game.random_number = RND(16)
             end if
- 
-
-            if random_number MOD 4 <> 0 then
-                random_number_qarter = FIX (random_number/4)+1 
-            else
-                random_number_qarter = FIX (random_number/4)
-            end if    
-        
+       
 
             ' ###
             ' ### level 
             if m.game.scores.eggs <= 10 then  
                 ' ###
                 ' ### Light level 
-                if random_number_qarter = 1 or random_number_qarter = 3  then
-                    m.game.random_number = random_number + 4
-                    m.game.random_number_edited = random_number + 4
+                if  random_number <= 4 or random_number > 8 and random_number <= 12 then
+                    random_number = random_number + 4
                 end if        
             else if m.game.scores.eggs <= 20 then
                 ' ###
@@ -58,7 +49,7 @@ function obj_clouds_position(object)
                 else if random_number = m.game.random_number_edited then
                     
                     random_number = m.game.random_number
-                    m.game.random_number_edited = m.game.random_number
+                    m.game.random_number_edited = random_number
                     m.game.random_number = RND(16)
                 end if 
             end if

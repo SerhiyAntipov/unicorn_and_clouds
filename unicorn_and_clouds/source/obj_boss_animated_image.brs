@@ -46,9 +46,9 @@ function obj_boss_animated_image(object)
 			if  m.game.random_number = 0 then
 				m.game.animatedimage_boss.offset_x = 442
 			else if m.game.random_number >= 8 then
-				m.game.animatedimage_boss.offset_x = 500
+				m.game.animatedimage_boss.offset_x = 542
 			else if m.game.random_number < 8 then
-				m.game.animatedimage_boss.offset_x = 384
+				m.game.animatedimage_boss.offset_x = 342
 			end if  
 		end if	
 	end function
