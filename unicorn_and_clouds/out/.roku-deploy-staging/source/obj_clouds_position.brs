@@ -18,16 +18,27 @@ function obj_clouds_position(object)
         m.game.random_number_edited = 0
         
         m.addRandomClouds = function ()
+            random_number = 0
+        
+            if m.game.random_number = 0 then
+                m.game.random_number = RND(16)
+                random_number = m.game.random_number
+                m.game.random_number = RND(16)
+            else 
+                random_number = m.game.random_number
+                m.game.random_number = RND(16)
+            end if
  
-            m.game.random_number = RND(16)
-            random_number = m.game.random_number
 
-            if m.game.random_number MOD 4 <> 0 then
-                random_number_qarter = FIX (m.game.random_number/4)+1 
+            if random_number MOD 4 <> 0 then
+                random_number_qarter = FIX (random_number/4)+1 
             else
-                random_number_qarter = FIX (m.game.random_number/4)
+                random_number_qarter = FIX (random_number/4)
             end if    
         
+
+            ' ###
+            ' ### level 
             if m.game.scores.eggs <= 10 then  
                 ' ###
                 ' ### Light level 
@@ -45,28 +56,29 @@ function obj_clouds_position(object)
                 if random_number <> m.game.random_number_edited then 
                     m.game.random_number_edited = random_number
                 else if random_number = m.game.random_number_edited then
-                    random_temp = RND(16)
-                    m.game.random_number = random_temp
-                    m.game.random_number_edited = random_temp
+                    
+                    random_number = m.game.random_number
+                    m.game.random_number_edited = m.game.random_number
+                    m.game.random_number = RND(16)
                 end if 
             end if
 
 
             ' ###
             ' ### Random number = slide position
-            if m.game.random_number <= 4 then
+            if random_number <= 4 then
                 m.game.random_slide = "slide_left_top"
-            elseif m.game.random_number <= 8 then
+            elseif random_number <= 8 then
                 m.game.random_slide = "slide_left_bottom"
-            elseif m.game.random_number <= 12 then
+            elseif random_number <= 12 then
                 m.game.random_slide = "slide_right_top"
-            elseif m.game.random_number <=16 then
+            elseif random_number <=16 then
                 m.game.random_slide = "slide_right_bottom"
             end if
 
             for each item in m.game.clouds_position_array.Items()
                 if m.game.random_slide = item.key then
-                    m.game.clouds_position_array.[item.key].Unshift(m.game.random_number)
+                    m.game.clouds_position_array.[item.key].Unshift(random_number)
                     m.game.clouds_position_array.[item.key].Pop()
                 else
                     m.game.clouds_position_array.[item.key].Unshift(0)
@@ -273,5 +285,5 @@ function obj_clouds_position(object)
         ' ### Catch game event
         m.game.createInstance("catch_game_event")
     end function
-
+  
 end function

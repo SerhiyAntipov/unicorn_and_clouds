@@ -3,10 +3,10 @@ function obj_score_handler(object)
     object.onCreate = function(args)
 
         m.game.createInstance("boss_animated_image")
-         
+                
         ' ### 
         ' ### Add animated image left
-
+                
         lost_cloud_01 = m.game.getBitmap("lost_cloud_01")
 		lost_cloud_02 = m.game.getBitmap("lost_cloud_02")
 		lost_cloud_03 = m.game.getBitmap("lost_cloud_03")
@@ -29,7 +29,7 @@ function obj_score_handler(object)
     end function
 
     object.onGameEvent = function(event as string, data as object)    
-        
+                
         if event = "score"    
             m.game.scores.eggs =  m.game.scores.eggs + 1
             m.game.playSound("cloud_basket_wav", 100)
@@ -134,6 +134,16 @@ function obj_score_handler(object)
         end if 
 
         ' ### 
+        ' ### Boss position
+        if  m.game.random_number = 0 then
+            m.game.animatedimage_boss.offset_x = 442
+        else if m.game.random_number >= 8 then
+            m.game.animatedimage_boss.offset_x = 500
+        else if m.game.random_number < 8 then
+            m.game.animatedimage_boss.offset_x = 500
+        end if
+
+        ' ### 
         ' ### Drawing egg lose image
         if m.game.scores["lose"] = 1 then
             m.game.animatedimage_boss.index = 1
@@ -145,7 +155,9 @@ function obj_score_handler(object)
             m.game.animatedimage_boss.index = 4
         else if m.game.scores["lose"] = 5 then 
             m.game.speed = 1500
-            ' m.game.createInstance("lightning")
+            m.game.random_number = 0
+               
+        ' m.game.createInstance("lightning")
         lightning_1 = m.game.getBitmap("lightning_1")
 		lightning_2 = m.game.getBitmap("lightning_2")
 		lightning_3 = m.game.getBitmap("lightning_3")
@@ -177,6 +189,7 @@ function obj_score_handler(object)
     end function
 
     object.onUpdate = function(dt)
+
         m.game.loseCloudAnimatedImageSpeed = 1500
         if m.game.animatedImageTimer <> invalid and m.game.animatedImageTimer.TotalMilliseconds() >= m.game.loseCloudAnimatedImageSpeed then          
             m.deleteAnimatedImage(m.game.data_side)

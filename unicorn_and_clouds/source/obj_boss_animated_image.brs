@@ -24,7 +24,8 @@ function obj_boss_animated_image(object)
 			m.game.boss_region_5
 			],{
 				index: 0
-				offset_x: 1280/2 - boss_1.GetWidth()/2,
+				' offset_x: 1280/2 - boss_1.GetWidth()/2,
+				offset_x: 442,
 				offset_y: 68, 
 				' animation_speed: 1500,
 				animation_tween: "LinearTween",
@@ -40,8 +41,17 @@ function obj_boss_animated_image(object)
 	
 	' This is the structure of the methods that can be added to an object
 
-	' object.onUpdate = function(deltaTime)
-	' end function
+	object.onUpdate = function(deltaTime)
+		if m.game.random_number <> invalid then
+			if  m.game.random_number = 0 then
+				m.game.animatedimage_boss.offset_x = 442
+			else if m.game.random_number >= 8 then
+				m.game.animatedimage_boss.offset_x = 500
+			else if m.game.random_number < 8 then
+				m.game.animatedimage_boss.offset_x = 384
+			end if  
+		end if	
+	end function
 
 	' object.onCollision = function(collider, other_collider, other_instance)
 	' end function
