@@ -8,7 +8,7 @@ function obj_catch_game_event(object)
 
 			lastArrayEllement = m.game.clouds_position_array[item_key].Count()-1
 
-			if m.game.clouds_position_array[item_key][lastArrayEllement] = 1 then
+			if m.game.clouds_position_array[item_key][lastArrayEllement] > 0 then
 				' ### 
 				' ### Catch egg		   
 				if item_key = "slide_left_top" and m.game.unicorn_position["position_left"] = true and m.game.unicorn_position["position_top"] = true then
