@@ -2,10 +2,11 @@ function obj_score_handler(object)
 
     object.onCreate = function(args)
 
+        m.game.createInstance("lightning")
         m.game.createInstance("boss_animated_image")
-                
+        
         ' ### 
-        ' ### Add animated image left
+        ' ### Add animated image ' remake , move to obj_cloud_animated_image
                 
         lost_cloud_01 = m.game.getBitmap("lost_cloud_01")
 		lost_cloud_02 = m.game.getBitmap("lost_cloud_02")
@@ -39,7 +40,7 @@ function obj_score_handler(object)
                 m.game.playSound("cloud_lose_wav", 100)
                 
                 ' ###
-                ' ### Add animated image left
+                ' ### Add animated image left ' remake , move to obj_cloud_animated_image
                 m.game.animated_left_cloud = m.addAnimatedImage("animated_left_cloud", [
                     m.game.cloud_broken_region_1, 
                     m.game.cloud_broken_region_2, 
@@ -63,7 +64,7 @@ function obj_score_handler(object)
                 m.game.playSound("cloud_lose_wav", 100)
                 
                 ' ###
-                ' ### Add animated image right
+                ' ### Add animated image right ' remake , move to obj_cloud_animated_image
                 m.game.animated_right_cloud = m.addAnimatedImage("animated_right_cloud", [
                     m.game.cloud_broken_region_1, 
                     m.game.cloud_broken_region_2, 
@@ -134,16 +135,6 @@ function obj_score_handler(object)
         end if 
 
         ' ### 
-        ' ### Boss position
-        if  m.game.random_number = 0 then
-            m.game.animatedimage_boss.offset_x = 442
-        else if m.game.random_number >= 8 then
-            m.game.animatedimage_boss.offset_x = 500
-        else if m.game.random_number < 8 then
-            m.game.animatedimage_boss.offset_x = 500
-        end if
-
-        ' ### 
         ' ### Drawing egg lose image
         if m.game.scores["lose"] = 1 then
             m.game.animatedimage_boss.index = 1
@@ -156,41 +147,14 @@ function obj_score_handler(object)
         else if m.game.scores["lose"] = 5 then 
             m.game.speed = 1500
             m.game.random_number = 0
-               
-        ' m.game.createInstance("lightning")
-        lightning_1 = m.game.getBitmap("lightning_1")
-		lightning_2 = m.game.getBitmap("lightning_2")
-		lightning_3 = m.game.getBitmap("lightning_3")
-		
-		m.game.lightning_1 = CreateObject("roRegion", lightning_1, 0, 0, lightning_1.GetWidth(), lightning_1.GetHeight())
-		m.game.lightning_2 = CreateObject("roRegion", lightning_2, 0, 0, lightning_2.GetWidth(), lightning_2.GetHeight())
-		m.game.lightning_3 = CreateObject("roRegion", lightning_3, 0, 0, lightning_3.GetWidth(), lightning_3.GetHeight())
-		
-		m.game.animatedImage_lightning = m.addAnimatedImage("animatedImage_lightning", [
-			m.game.lightning_1, 
-			m.game.lightning_2, 
-			m.game.lightning_3
-			],{
-				index: 0
-				offset_x: 1280/2 - lightning_1.GetWidth()/2 + 10,
-				offset_y: 720/2 - lightning_1.GetHeight()/2 - 60, 
-				animation_speed: 1500,
-				animation_tween: "LinearTween",
-				alpha: 255,
-				enabled: true,
-				loopAnimation: false,
-				LoopAction: false,
-				running: false
-            })
-            
+            m.game.musicPause()   
             m.game.playSound("game_over_01_wav", 100)
         end if
 
     end function
 
     object.onUpdate = function(dt)
-
-        m.game.loseCloudAnimatedImageSpeed = 1500
+        m.game.loseCloudAnimatedImageSpeed = 1500 ' remake , move to obj_cloud_animated_image
         if m.game.animatedImageTimer <> invalid and m.game.animatedImageTimer.TotalMilliseconds() >= m.game.loseCloudAnimatedImageSpeed then          
             m.deleteAnimatedImage(m.game.data_side)
             
@@ -201,7 +165,7 @@ function obj_score_handler(object)
 	end function
 
     ' ### 
-    ' ### Delete Animated Image
+    ' ### Delete Animated Image ' remake , move to obj_cloud_animated_image
     object.deleteAnimatedImage = function(side)   
         if side = "left" then
             m.removeImage("animated_left_cloud")

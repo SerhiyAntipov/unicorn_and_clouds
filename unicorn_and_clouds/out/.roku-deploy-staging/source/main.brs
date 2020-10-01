@@ -88,12 +88,14 @@ sub Main()
 	' ###
 	' ### sellect room
 	game.changeRoom("room_game_start")
+	
 	' ### ------------------------------------------
 	' ### For test
 	' game.changeRoom("room_game_play") 
 	' game.changeRoom("room_game_over") 
 	' ### ------------------------------------------
 
+	
 	' ###
 	' ### start game
 	game.Play()

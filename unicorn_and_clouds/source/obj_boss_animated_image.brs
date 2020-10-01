@@ -41,16 +41,19 @@ function obj_boss_animated_image(object)
 	
 	' This is the structure of the methods that can be added to an object
 
-	object.onUpdate = function(deltaTime)
-		if m.game.random_number <> invalid then
+	object.onUpdate = function(deltaTime)	
+		' ### 
+		' ### Boss position
+		if m.game.random_number <> invalid then 
 			if  m.game.random_number = 0 then
 				m.game.animatedimage_boss.offset_x = 442
 			else if m.game.random_number >= 8 then
 				m.game.animatedimage_boss.offset_x = 542
 			else if m.game.random_number < 8 then
 				m.game.animatedimage_boss.offset_x = 342
-			end if  
-		end if	
+			end if
+		end if
+	
 	end function
 
 	' object.onCollision = function(collider, other_collider, other_instance)
@@ -97,7 +100,7 @@ function obj_boss_animated_image(object)
 	' object.onUrlEvent = function(msg)
 	' end function
 
-	' object.onGameEvent = function(event, data)
+	' object.onGameEvent = function(event, data)		
 	' end function
 
 	' object.onChangeRoom = function(new_room)

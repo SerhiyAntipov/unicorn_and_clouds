@@ -21,15 +21,25 @@ function obj_lightning(object)
 				index: 0
 				offset_x: 1280/2 - lightning_1.GetWidth()/2,
 				offset_y: 720/2 - lightning_1.GetHeight()/2 - 60, 
-				animation_speed: 1500,
+				animation_speed: 0,
 				animation_tween: "LinearTween",
-				alpha: 255,
-				enabled: true,
-				loopAnimation: false,
-				LoopAction: false,
-				running: false
+				alpha: 0,
+				enabled: false,
+				' alpha: 255,
+				' enabled: true,
+				' animation_speed: 1500,
 			})
 
+	end function
+		
+	object.onUpdate = function(deltaTime)
+		if m.game.scores["lose"] <> invalid then
+			if m.game.scores["lose"] = 5 then
+				m["game"]["animatedimage_lightning"].alpha = 255
+				m["game"]["animatedimage_lightning"].enabled = true
+				m["game"]["animatedimage_lightning"].animation_speed = 1500
+			end if
+		end if
 	end function
 
 end function

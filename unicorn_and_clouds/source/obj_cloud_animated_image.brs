@@ -3,7 +3,7 @@ function obj_cloud_animated_image(object)
 	object.onCreate = function(args)
 
 		' ### 
-        ' ### Add cloud lose animated 
+		' ### Add cloud lose animated 
 		
 		lost_cloud_01 = m.game.getBitmap("lost_cloud_01")
 		lost_cloud_02 = m.game.getBitmap("lost_cloud_02")
