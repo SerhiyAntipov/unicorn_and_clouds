@@ -1,4 +1,5 @@
-.out/
-./channel/out/*.*
-./unicorn_and_clouds/out/*.*
+out/
+channel/out/*.*
+unicorn_and_clouds/out/*.*
 
+unicorn_and_clouds/.vscode/launch.json
