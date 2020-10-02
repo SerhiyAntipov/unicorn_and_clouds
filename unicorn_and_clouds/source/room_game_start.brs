@@ -3,7 +3,7 @@ function room_game_start(object)
 	object.onCreate = function(args)
 		
 		'### 
-		'### get fonts 
+		'### Get fonts 
 		m.game.font_SF_Digital_Readout = m.game.getFont("font_SF_Digital_Readout") 
 				
 		' ### 
@@ -14,8 +14,6 @@ function room_game_start(object)
 	
 		' ### 
 		' ### Boss img
-		m.game.createInstance("boss_animated_image") ' NOT WORK !!!! 
-
 		boss_1 = m.game.getBitmap("boss_1")
 		width = boss_1.GetWidth()
 		height = boss_1.GetHeight()

@@ -4,10 +4,10 @@ function obj_score_handler(object)
 
         m.game.createInstance("lightning")
         m.game.createInstance("boss_animated_image")
-        
+        m.game.createInstance("lose_cloud_animated_image", {depth : 10}) 
+
         ' ### 
-        ' ### Add animated image ' remake , move to obj_cloud_animated_image
-                
+        ' ### Add animated image ' remake , move to obj_cloud_animated_image       
         lost_cloud_01 = m.game.getBitmap("lost_cloud_01")
 		lost_cloud_02 = m.game.getBitmap("lost_cloud_02")
 		lost_cloud_03 = m.game.getBitmap("lost_cloud_03")
@@ -30,15 +30,26 @@ function obj_score_handler(object)
     end function
 
     object.onGameEvent = function(event as string, data as object)    
-                
-        if event = "score"    
+
+        if event = "score"
             m.game.scores.eggs =  m.game.scores.eggs + 1
             m.game.playSound("cloud_basket_wav", 100)
-        elseif event = "lose"
+        elseif event = "lose" 
+            
+            '  m.game.createInstance("lose_cloud_animated_image", {depth : 10}) ' not visible  
+
             if data.side = "left" then
                 m.game.scores.lose = m.game.scores.lose + 1
                 m.game.playSound("cloud_lose_wav", 100)
-                
+               
+                ' ###
+                ' ### Add animated image left 
+                ' m["game"]["animatedimage_lose_cloud"].animation_speed = 1500
+                ' m["game"]["animatedimage_lose_cloud"].index = 0
+                ' m["game"]["animatedimage_lose_cloud"].enabled = true
+                ' m["game"]["animatedimage_lose_cloud"].offset_x = 1280/2 - 275
+
+
                 ' ###
                 ' ### Add animated image left ' remake , move to obj_cloud_animated_image
                 m.game.animated_left_cloud = m.addAnimatedImage("animated_left_cloud", [
@@ -55,14 +66,19 @@ function obj_score_handler(object)
                         animation_tween: "LinearTween",
                         alpha: 255,
                         enabled: true,
-                        loopAnimation: false,
-                        LoopAction: false
                     })
                
             elseif data.side = "right" then
                 m.game.scores.lose = m.game.scores.lose + 1
                 m.game.playSound("cloud_lose_wav", 100)
                 
+                ' ###
+                ' ### Add animated image right ' remake
+                ' m["game"]["animatedimage_lose_cloud"].animation_speed = 1500
+                ' m["game"]["animatedimage_lose_cloud"].index = 0
+                ' m["game"]["animatedimage_lose_cloud"].enabled = true
+                ' m["game"]["animatedimage_lose_cloud"].offset_x = 1280/2 + 275 - 145
+
                 ' ###
                 ' ### Add animated image right ' remake , move to obj_cloud_animated_image
                 m.game.animated_right_cloud = m.addAnimatedImage("animated_right_cloud", [
@@ -78,9 +94,7 @@ function obj_score_handler(object)
                         animation_speed: 1500,
                         animation_tween: "LinearTween",
                         alpha: 255,
-                        enabled: true,
-                        loopAnimation: false,
-                        LoopAction: false
+                        enabled: true
                     })
             end if  
 
@@ -154,7 +168,7 @@ function obj_score_handler(object)
     end function
 
     object.onUpdate = function(dt)
-        m.game.loseCloudAnimatedImageSpeed = 1500 ' remake , move to obj_cloud_animated_image
+        m.game.loseCloudAnimatedImageSpeed = 1450 ' remake , move to obj_cloud_animated_image
         if m.game.animatedImageTimer <> invalid and m.game.animatedImageTimer.TotalMilliseconds() >= m.game.loseCloudAnimatedImageSpeed then          
             m.deleteAnimatedImage(m.game.data_side)
             
@@ -167,6 +181,9 @@ function obj_score_handler(object)
     ' ### 
     ' ### Delete Animated Image ' remake , move to obj_cloud_animated_image
     object.deleteAnimatedImage = function(side)   
+
+        m.game.delete("animatedimage_lose_cloud")
+        
         if side = "left" then
             m.removeImage("animated_left_cloud")
         elseif side = "right"  then

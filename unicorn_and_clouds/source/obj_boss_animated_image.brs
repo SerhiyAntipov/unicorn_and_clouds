@@ -30,10 +30,7 @@ function obj_boss_animated_image(object)
 				' animation_speed: 1500,
 				animation_tween: "LinearTween",
 				alpha: 255,
-				enabled: true,
-				loopAnimation: false,
-				running: false,
-				Animate: invalid, ' The method that handles animation
+				enabled: true
 			})
 
 	end function

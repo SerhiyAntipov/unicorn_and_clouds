@@ -1,8 +1,26 @@
 function obj_clouds_position(object)
 
     object.onCreate = function(args)  
-                
-        m.game.imgArray = []
+        ' ### 
+        ' ### Create All color clouds img object 
+
+        ' cloud_1 = m.game.getBitmap("cloud_1")
+        ' cloud_2 = m.game.getBitmap("cloud_2")
+        ' cloud_3 = m.game.getBitmap("cloud_3")
+        ' cloud_4 = m.game.getBitmap("cloud_4")
+        ' m.region_1 = CreateObject("roRegion", cloud_1, 0, 0, cloud_1.GetWidth(), cloud_1.GetHeight())
+        ' m.region_2 = CreateObject("roRegion", cloud_2, 0, 0, cloud_2.GetWidth(), cloud_2.GetHeight())
+        ' m.region_3 = CreateObject("roRegion", cloud_3, 0, 0, cloud_3.GetWidth(), cloud_3.GetHeight())
+        ' m.region_4 = CreateObject("roRegion", cloud_4, 0, 0, cloud_4.GetWidth(), cloud_4.GetHeight())     
+        
+		for i = 1 to 4
+            img_name = "cloud_" + i.ToStr()
+            bitmap_name = "cloud_" + i.ToStr()
+            bitmap_name = m.game.getBitmap(img_name)
+            region_name = "region_" + i.ToStr() 
+			m[region_name] = CreateObject("roRegion", bitmap_name , 0, 0, bitmap_name.GetWidth(), bitmap_name.GetHeight())
+		end for
+
         ' ###   
         ' ### Create array clouds position
         m.game.clouds_position_array = {
@@ -46,8 +64,7 @@ function obj_clouds_position(object)
                 ' ### Hard level 
                 if random_number <> m.game.random_number_edited then 
                     m.game.random_number_edited = random_number
-                else if random_number = m.game.random_number_edited then
-                    
+                else if random_number = m.game.random_number_edited then     
                     random_number = m.game.random_number
                     m.game.random_number_edited = random_number
                     m.game.random_number = RND(16)
@@ -88,16 +105,6 @@ function obj_clouds_position(object)
         ' ###
         ' ### Render clouds 
         m.renderClouds = function ()
-            ' ### 
-            ' ### Create All color clouds img object 
-            cloud_1 = m.game.getBitmap("cloud_1")
-            cloud_2 = m.game.getBitmap("cloud_2")
-            cloud_3 = m.game.getBitmap("cloud_3")
-            cloud_4 = m.game.getBitmap("cloud_4")
-            m.game.region_1 = CreateObject("roRegion", cloud_1, 0, 0, cloud_1.GetWidth(), cloud_1.GetHeight())
-            m.game.region_2 = CreateObject("roRegion", cloud_2, 0, 0, cloud_2.GetWidth(), cloud_2.GetHeight())
-            m.game.region_3 = CreateObject("roRegion", cloud_3, 0, 0, cloud_3.GetWidth(), cloud_3.GetHeight())
-            m.game.region_4 = CreateObject("roRegion", cloud_4, 0, 0, cloud_4.GetWidth(), cloud_4.GetHeight())
                 
             ' ### 
             ' ### Default offset value 
@@ -143,8 +150,8 @@ function obj_clouds_position(object)
                     end for
                           
                     ' ### 
-                    ' ### One selected instant color  any from m.game.region_1-4
-                    m.addImage( name_img.ToStr() + "_" + i.ToStr() , m.game.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
+                    ' ### One selected instant color  any from m.region_1-4
+                    m.addImage( name_img.ToStr() + "_" + i.ToStr() , m.region_1,{ offset_x: offset_x_value, offset_y: offset_y_value, alpha: alpha_value, rotation: rotation_value, class: name_img.ToStr(), img_id: i})
                  
                 end for 
             end for
@@ -197,17 +204,17 @@ function obj_clouds_position(object)
                         cloudsColor = m.game.clouds_position_array[item_key][i]
                         
                         if (cloudsColor + 3) MOD 4 = 0 then
-                            m.allCloudsImg[item_key][i].region = m.game.region_1
+                            m.allCloudsImg[item_key][i].region = m.region_1
                         end if
                         if (cloudsColor + 2) MOD 4 = 0 then
-                            m.allCloudsImg[item_key][i].region = m.game.region_2
+                            m.allCloudsImg[item_key][i].region = m.region_2
                         end if
                         if (cloudsColor + 1) MOD 4 = 0 then
-                            m.allCloudsImg[item_key][i].region = m.game.region_3
+                            m.allCloudsImg[item_key][i].region = m.region_3
                         end if
                         if cloudsColor MOD 4 = 0 then
                         ' if cloudsColor = 4 or cloudsColor = 8 or cloudsColor = 12 or cloudsColor = 16  then
-                            m.allCloudsImg[item_key][i].region = m.game.region_4
+                            m.allCloudsImg[item_key][i].region = m.region_4
                         end if
                         ' ###
 

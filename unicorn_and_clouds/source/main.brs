@@ -35,6 +35,7 @@ sub Main()
 	game.loadBitmap("boss_4", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-04.png")
 	game.loadBitmap("boss_5", "pkg:/sprites/boss/koshkmyak-cloud_koshkmyak-05.png")
 
+	game.loadBitmap("lost_cloud_00", "pkg:/sprites/lost_cloud/lost-cloud-animation_00.png")
 	game.loadBitmap("lost_cloud_01", "pkg:/sprites/lost_cloud/lost-cloud-animation_01.png")
 	game.loadBitmap("lost_cloud_02", "pkg:/sprites/lost_cloud/lost-cloud-animation_02.png")
 	game.loadBitmap("lost_cloud_03", "pkg:/sprites/lost_cloud/lost-cloud-animation_03.png")
@@ -73,7 +74,7 @@ sub Main()
 	game.defineObject("libTweener", tweener)
 	game.defineObject("boss_animated_image", obj_boss_animated_image)
 	game.defineObject("catch_game_event", obj_catch_game_event)
-	game.defineObject("cloud_animated_image", obj_cloud_animated_image)
+	game.defineObject("lose_cloud_animated_image", obj_lose_cloud_animated_image)
 	game.defineObject("clouds_position", obj_clouds_position)
 	game.defineObject("game_background", obj_game_background)
 	game.defineObject("lightning", obj_lightning)
@@ -91,7 +92,7 @@ sub Main()
 	
 	' ### ------------------------------------------
 	' ### For test
-	' game.changeRoom("room_game_play") 
+	game.changeRoom("room_game_play") 
 	' game.changeRoom("room_game_over") 
 	' ### ------------------------------------------
 
