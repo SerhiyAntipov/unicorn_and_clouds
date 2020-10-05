@@ -7,9 +7,7 @@ function obj_score_handler(object)
     object.onCreate = function(args)
         m.game.createInstance("lightning")
         m.game.createInstance("boss_animated_image")
-        ' m.game.createInstance("lose_cloud_animatedimage", {depth : 10}) 'Creating Instance
-        ' m.createInstanceLoseCloud() 'NOT Creating Instance  'Creating Instance
-       
+        
         ' ### 
         ' ### Add animated image ' remake , move to obj_cloud_animated_image       
         lost_cloud_01 = m.game.getBitmap("lost_cloud_01")
@@ -40,19 +38,8 @@ function obj_score_handler(object)
             m.game.playSound("cloud_basket_wav", 100)
         elseif event = "lose" 
 
-            ' m.game.createInstance("lose_cloud_animated_image", {depth : 10}) 'NOT CREATED Instance
             m.createInstanceLoseCloud() 'CREATED, NOT visible Instance
         
-            ' ###
-            ' ### Check CREATION  Instance lose_cloud_animated_image
-            if m.game.animatedimage_lose_cloud = invalid then
-                print "instansce animatedimage_lose_cloud NOT CREATED"
-            else
-                print "animatedimage_lose_cloud CREATED"
-            end if
-
-
-
             if data.side = "left" then
                 m.game.scores.lose = m.game.scores.lose + 1
                 m.game.playSound("cloud_lose_wav", 100)
@@ -198,8 +185,9 @@ function obj_score_handler(object)
     object.deleteAnimatedImage = function(side)   
                
         ' ###
-        ' ### delete lose_cloud_animated_image
-        m.game.delete("animatedimage_lose_cloud")  
+        ' ### delete lose_cloud_animated_image 
+       'TODO destroy sample
+       ' m.game.destroyAllInstances("animatedimage_lose_cloud")
                        
         if side = "left" then
             m.removeImage("animated_left_cloud")
