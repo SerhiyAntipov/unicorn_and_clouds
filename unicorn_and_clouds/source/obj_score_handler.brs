@@ -41,15 +41,15 @@ function obj_score_handler(object)
         elseif event = "lose" 
 
             ' m.game.createInstance("lose_cloud_animated_image", {depth : 10}) 'NOT CREATED Instance
-            ' m.createInstanceLoseCloud() 'CREATED, NOT visible Instance
+            m.createInstanceLoseCloud() 'CREATED, NOT visible Instance
         
             ' ###
             ' ### Check CREATION  Instance lose_cloud_animated_image
-            ' if m.game.animatedimage_lose_cloud = invalid then
-            '     print "instansce animatedimage_lose_cloud NOT CREATED"
-            ' else
-            '     print "animatedimage_lose_cloud CREATED"
-            ' end if
+            if m.game.animatedimage_lose_cloud = invalid then
+                print "instansce animatedimage_lose_cloud NOT CREATED"
+            else
+                print "animatedimage_lose_cloud CREATED"
+            end if
 
 
 
