@@ -10,9 +10,6 @@ function room_game_play(object)
 		' ### Load sprites
 		' loading_unicorn_sprite = TexturePacker_GetRegions(ParseJson(ReadAsciiFile("pkg:/sprites/unicorn-clouds-sprite.json")),m.game.getBitmap("unicorn-clouds-sprite"))
 		
-		' m.game.game_background = m.game.createInstance("game_background") '### move from obj_unicorn_position
-        ' m.game.game_background.depth = -1
-
 		m.game.createInstance("pause_handler")
 		m.game.createInstance("score_handler")
 		m.game.createInstance("clouds_position")
