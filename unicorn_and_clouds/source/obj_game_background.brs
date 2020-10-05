@@ -1,9 +1,10 @@
 function obj_game_background(object)
 
 	object.onCreate = function(args)
-		
-		' '###
-        ' '### Create game bg 
+        m.depth = 100 ' z-index
+                
+		'###
+        '### Create game bg 
         bg_bg = m.game.getBitmap("bg_bg")
 		width = bg_bg.GetWidth()
 		height = bg_bg.GetHeight()

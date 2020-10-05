@@ -1,0 +1,273 @@
+{"frames": {
+
+"basket_left_bottom.png":
+{
+	"frame": {"x":644,"y":0,"w":126,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":98},
+	"sourceSize": {"w":126,"h":98}
+},
+"basket_left_top.png":
+{
+	"frame": {"x":392,"y":0,"w":126,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":93},
+	"sourceSize": {"w":126,"h":93}
+},
+"basket_right_bottom.png":
+{
+	"frame": {"x":770,"y":0,"w":126,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":98},
+	"sourceSize": {"w":126,"h":98}
+},
+"basket_right_top.png":
+{
+	"frame": {"x":518,"y":0,"w":126,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":93},
+	"sourceSize": {"w":126,"h":93}
+},
+"bg_bg.png":
+{
+	"frame": {"x":580,"y":1044,"w":1284,"h":721},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1284,"h":721},
+	"sourceSize": {"w":1284,"h":721}
+},
+"bg_earth.png":
+{
+	"frame": {"x":570,"y":716,"w":1009,"h":304},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1009,"h":304},
+	"sourceSize": {"w":1009,"h":304}
+},
+"bg_rainbow.png":
+{
+	"frame": {"x":0,"y":453,"w":506,"h":259},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":506,"h":259},
+	"sourceSize": {"w":506,"h":259}
+},
+"clouds-little_little-cloud-01.png":
+{
+	"frame": {"x":0,"y":0,"w":98,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":68},
+	"sourceSize": {"w":98,"h":68}
+},
+"clouds-little_little-cloud-02.png":
+{
+	"frame": {"x":98,"y":0,"w":98,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":68},
+	"sourceSize": {"w":98,"h":68}
+},
+"clouds-little_little-cloud-03.png":
+{
+	"frame": {"x":196,"y":0,"w":98,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":68},
+	"sourceSize": {"w":98,"h":68}
+},
+"clouds-little_little-cloud-04.png":
+{
+	"frame": {"x":294,"y":0,"w":98,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":68},
+	"sourceSize": {"w":98,"h":68}
+},
+"koshkmyak-cloud_koshkmyak-01.png":
+{
+	"frame": {"x":1166,"y":0,"w":396,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":200},
+	"sourceSize": {"w":396,"h":200}
+},
+"koshkmyak-cloud_koshkmyak-02.png":
+{
+	"frame": {"x":0,"y":200,"w":396,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":200},
+	"sourceSize": {"w":396,"h":200}
+},
+"koshkmyak-cloud_koshkmyak-03.png":
+{
+	"frame": {"x":396,"y":200,"w":396,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":200},
+	"sourceSize": {"w":396,"h":200}
+},
+"koshkmyak-cloud_koshkmyak-04.png":
+{
+	"frame": {"x":792,"y":200,"w":396,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":200},
+	"sourceSize": {"w":396,"h":200}
+},
+"koshkmyak-cloud_koshkmyak-05.png":
+{
+	"frame": {"x":1188,"y":200,"w":396,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":200},
+	"sourceSize": {"w":396,"h":200}
+},
+"koshkmyak-cloud_lightning.png":
+{
+	"frame": {"x":896,"y":0,"w":90,"h":149},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":149},
+	"sourceSize": {"w":90,"h":149}
+},
+"koshkmyak-cloud_lightning_copy.png":
+{
+	"frame": {"x":986,"y":0,"w":90,"h":149},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":149},
+	"sourceSize": {"w":90,"h":149}
+},
+"koshkmyak-cloud_lightning_copy_2.png":
+{
+	"frame": {"x":1076,"y":0,"w":90,"h":149},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":149},
+	"sourceSize": {"w":90,"h":149}
+},
+"lost-cloud-animation_00.png":
+{
+	"frame": {"x":1579,"y":716,"w":145,"h":328},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":145,"h":328},
+	"sourceSize": {"w":145,"h":328}
+},
+"lost-cloud-animation_01.png":
+{
+	"frame": {"x":1724,"y":716,"w":145,"h":328},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":145,"h":328},
+	"sourceSize": {"w":145,"h":328}
+},
+"lost-cloud-animation_02.png":
+{
+	"frame": {"x":0,"y":1044,"w":145,"h":328},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":145,"h":328},
+	"sourceSize": {"w":145,"h":328}
+},
+"lost-cloud-animation_03.png":
+{
+	"frame": {"x":145,"y":1044,"w":145,"h":328},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":145,"h":328},
+	"sourceSize": {"w":145,"h":328}
+},
+"lost-cloud-animation_04.png":
+{
+	"frame": {"x":290,"y":1044,"w":145,"h":328},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":145,"h":328},
+	"sourceSize": {"w":145,"h":328}
+},
+"lost-cloud-animation_05.png":
+{
+	"frame": {"x":435,"y":1044,"w":145,"h":328},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":145,"h":328},
+	"sourceSize": {"w":145,"h":328}
+},
+"shelfs_shelfs-left.png":
+{
+	"frame": {"x":0,"y":716,"w":285,"h":285},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":285,"h":285},
+	"sourceSize": {"w":285,"h":285}
+},
+"shelfs_shelfs-right.png":
+{
+	"frame": {"x":285,"y":716,"w":285,"h":285},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":285,"h":285},
+	"sourceSize": {"w":285,"h":285}
+},
+"unicorn_unicorn_burned.png":
+{
+	"frame": {"x":1584,"y":200,"w":168,"h":253},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":253},
+	"sourceSize": {"w":168,"h":253}
+},
+"unicorn_unicorn_down.png":
+{
+	"frame": {"x":506,"y":453,"w":341,"h":263},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":341,"h":263},
+	"sourceSize": {"w":341,"h":263}
+},
+"unicorn_unicorn_down_2.png":
+{
+	"frame": {"x":847,"y":453,"w":341,"h":263},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":341,"h":263},
+	"sourceSize": {"w":341,"h":263}
+},
+"unicorn_unicorn_up.png":
+{
+	"frame": {"x":1188,"y":453,"w":341,"h":263},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":341,"h":263},
+	"sourceSize": {"w":341,"h":263}
+},
+"unicorn_unicorn_up_2.png":
+{
+	"frame": {"x":1529,"y":453,"w":341,"h":263},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":341,"h":263},
+	"sourceSize": {"w":341,"h":263}
+}},
+"animations": {
+	"clouds-little_little-cloud": ["clouds-little_little-cloud-01.png","clouds-little_little-cloud-02.png","clouds-little_little-cloud-03.png","clouds-little_little-cloud-04.png"],
+	"koshkmyak-cloud_koshkmyak": ["koshkmyak-cloud_koshkmyak-01.png","koshkmyak-cloud_koshkmyak-02.png","koshkmyak-cloud_koshkmyak-03.png","koshkmyak-cloud_koshkmyak-04.png","koshkmyak-cloud_koshkmyak-05.png"],
+	"lost-cloud-animation": ["lost-cloud-animation_00.png","lost-cloud-animation_01.png","lost-cloud-animation_02.png","lost-cloud-animation_03.png","lost-cloud-animation_04.png","lost-cloud-animation_05.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "atlas_01.png",
+	"format": "RGBA8888",
+	"size": {"w":1870,"h":1765},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d36b3d95ec2dccf24f2ec9650acb6333:eabe726c97d23d4007297f24a1be1735:b3d8ec96addd00b6d0a1be261ddd8928$"
+}
+}

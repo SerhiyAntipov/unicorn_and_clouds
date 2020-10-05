@@ -1,10 +1,11 @@
 function obj_lose_cloud_animated_image(object)
 
+	
 	object.onCreate = function(args)
-
+	
 		' ### 
 		' ### Add cloud lose animated 
-	
+		
 		frames = []
 		for i = 1 to 5
 			tex_name = "lost_cloud_0"+i.ToStr()
@@ -13,7 +14,7 @@ function obj_lose_cloud_animated_image(object)
 			frames.Push(region)
 		end for
 		
-		m.cloudAnim = m.addAnimatedImage("animatedimage_lose_cloud", frames,{
+		m.game.animatedimage_lose_cloud = m.addAnimatedImage("animatedimage_lose_cloud", frames,{
 				index: 0
 				offset_x: 50,
 				offset_y: 240, 
@@ -24,20 +25,21 @@ function obj_lose_cloud_animated_image(object)
 				loopAnimation:false
 			})
 
-		m.pendingRemoove = false
-
+		m.lastAnimationSpeed = 1480
+		m.animatedTimer=createobject("roTimeSpan")
+		m.animatedTimer.mark()
 	end function
 
 	object.onUpdate = function(dt)
-		if m.pendingRemoove 
+		if m.animatedTimer <> invalid and m.animatedTimer.TotalMilliseconds() >= m.lastAnimationSpeed then   
 			m.game.destroyInstance(m)
-		elseif m.cloudAnim.index = m.cloudAnim.regions.Count() - 1
-			m.pendingRemoove = true
 		end if
+		' if m.game.animatedimage_lose_cloud.index = m.game.animatedimage_lose_cloud.regions.Count() - 1 then
+		' end if
 	end function
 
 	object.onDestroy = function()
-		print "animatedimage_lose_cloud destroyed..."
+		' print "animatedimage_lose_cloud destroyed..."
 	end function
 	
 end function

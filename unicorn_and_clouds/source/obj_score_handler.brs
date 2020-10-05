@@ -1,26 +1,8 @@
 function obj_score_handler(object)
    
-    object.createInstanceLoseCloud = function()
-        m.game.createInstance("lose_cloud_animatedimage", {depth : 10}) 
-    end function
-
     object.onCreate = function(args)
         m.game.createInstance("lightning")
         m.game.createInstance("boss_animated_image")
-        
-        ' ### 
-        ' ### Add animated image ' remake , move to obj_cloud_animated_image       
-        lost_cloud_01 = m.game.getBitmap("lost_cloud_01")
-		lost_cloud_02 = m.game.getBitmap("lost_cloud_02")
-		lost_cloud_03 = m.game.getBitmap("lost_cloud_03")
-		lost_cloud_04 = m.game.getBitmap("lost_cloud_04")
-		lost_cloud_05 = m.game.getBitmap("lost_cloud_05")
-
-		m.game.cloud_broken_region_1 = CreateObject("roRegion", lost_cloud_01, 0, 0, lost_cloud_01.GetWidth(), lost_cloud_01.GetHeight())
-		m.game.cloud_broken_region_2 = CreateObject("roRegion", lost_cloud_02, 0, 0, lost_cloud_02.GetWidth(), lost_cloud_02.GetHeight())
-		m.game.cloud_broken_region_3 = CreateObject("roRegion", lost_cloud_03, 0, 0, lost_cloud_03.GetWidth(), lost_cloud_03.GetHeight())
-		m.game.cloud_broken_region_4 = CreateObject("roRegion", lost_cloud_04, 0, 0, lost_cloud_04.GetWidth(), lost_cloud_04.GetHeight())
-        m.game.cloud_broken_region_5 = CreateObject("roRegion", lost_cloud_05, 0, 0, lost_cloud_05.GetWidth(), lost_cloud_05.GetHeight())
                  
         ' ### 
         ' ### Add score
@@ -38,7 +20,7 @@ function obj_score_handler(object)
             m.game.playSound("cloud_basket_wav", 100)
         elseif event = "lose" 
 
-            m.createInstanceLoseCloud() 'CREATED, NOT visible Instance
+            m.game.createInstance("lose_cloud_animatedimage") 
         
             if data.side = "left" then
                 m.game.scores.lose = m.game.scores.lose + 1
@@ -46,64 +28,17 @@ function obj_score_handler(object)
                
                 ' ###
                 ' ### Add animated image left 
-                ' m["game"]["animatedimage_lose_cloud"].animation_speed = 1500
-                ' m["game"]["animatedimage_lose_cloud"].index = 0
-                ' m["game"]["animatedimage_lose_cloud"].enabled = true
-                ' m["game"]["animatedimage_lose_cloud"].offset_x = 1280/2 - 275
+                m.game.animatedimage_lose_cloud.offset_x = 1280/2 - 275
 
-
-                ' ###
-                ' ### Add animated image left ' remake , move to obj_cloud_animated_image
-                m.game.animated_left_cloud = m.addAnimatedImage("animated_left_cloud", [
-                    m.game.cloud_broken_region_1, 
-                    m.game.cloud_broken_region_2, 
-                    m.game.cloud_broken_region_3, 
-                    m.game.cloud_broken_region_4, 
-                    m.game.cloud_broken_region_5 
-                    ],{
-                        index: 0
-                        offset_x: 1280/2 - 275,
-                        offset_y: 240, 
-                        animation_speed: 1500,
-                        animation_tween: "LinearTween",
-                        alpha: 255,
-                        enabled: true,
-                    })
-               
             elseif data.side = "right" then
                 m.game.scores.lose = m.game.scores.lose + 1
                 m.game.playSound("cloud_lose_wav", 100)
                 
                 ' ###
                 ' ### Add animated image right ' remake
-                ' m["game"]["animatedimage_lose_cloud"].animation_speed = 1500
-                ' m["game"]["animatedimage_lose_cloud"].index = 0
-                ' m["game"]["animatedimage_lose_cloud"].enabled = true
-                ' m["game"]["animatedimage_lose_cloud"].offset_x = 1280/2 + 275 - 145
-
-                ' ###
-                ' ### Add animated image right ' remake , move to obj_cloud_animated_image
-                m.game.animated_right_cloud = m.addAnimatedImage("animated_right_cloud", [
-                    m.game.cloud_broken_region_1, 
-                    m.game.cloud_broken_region_2, 
-                    m.game.cloud_broken_region_3, 
-                    m.game.cloud_broken_region_4, 
-                    m.game.cloud_broken_region_5 
-                    ],{
-                        index: 0
-                        offset_x: 1280/2 + 275 - 145,
-                        offset_y: 240, 
-                        animation_speed: 1500,
-                        animation_tween: "LinearTween",
-                        alpha: 255,
-                        enabled: true
-                    })
+                m.game.animatedimage_lose_cloud.offset_x = 1280/2 + 275 - 145
             end if  
 
-            ' ###
-            ' ### Timer for delete animated image 
-            m.game.animatedImageTimer=createobject("roTimeSpan")
-            m.game.animatedImageTimer.mark()
         end if
  
         ' ### 
@@ -166,35 +101,6 @@ function obj_score_handler(object)
             m.game.musicPause()   
             m.game.playSound("game_over_01_wav", 100)
         end if
-
-    end function
-
-    object.onUpdate = function(dt)
-        m.game.loseCloudAnimatedImageSpeed = 1450 ' remake , move to obj_cloud_animated_image
-        if m.game.animatedImageTimer <> invalid and m.game.animatedImageTimer.TotalMilliseconds() >= m.game.loseCloudAnimatedImageSpeed then          
-            m.deleteAnimatedImage(m.game.data_side)
-            
-            ' ### 
-            ' ### Delete timer 
-            m.game.delete("animatedImageTimer")     
-        end if
-	end function
-
-    ' ### 
-    ' ### Delete Animated Image ' remake , move to obj_cloud_animated_image
-    object.deleteAnimatedImage = function(side)   
-               
-        ' ###
-        ' ### delete lose_cloud_animated_image 
-       'TODO destroy sample
-       ' m.game.destroyAllInstances("animatedimage_lose_cloud")
-                       
-        if side = "left" then
-            m.removeImage("animated_left_cloud")
-        elseif side = "right"  then
-            m.removeImage("animated_right_cloud")
-        end if
-
     end function
 
     object.onDrawEnd = function(canvas as object)

@@ -11,6 +11,11 @@ sub Main()
 
 	' ###
 	' ### load bitmap
+	game.loadBitmap("atlas_01", "pkg:/sprites/atlas_01.png")
+
+
+	' ###
+	' ### load bitmap
 	game.loadBitmap("bg_bg", "pkg:/sprites/bg_bg.png")
 	game.loadBitmap("bg_earth", "pkg:/sprites/bg_earth.png")
 	game.loadBitmap("bg_rainbow", "pkg:/sprites/bg_rainbow.png")

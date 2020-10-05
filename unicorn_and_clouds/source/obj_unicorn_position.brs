@@ -1,9 +1,7 @@
 function obj_unicorn_position(object)
 
     object.onCreate = function(args)
- 
-        m.game.createInstance("game_background") '### Move to room_game_play 
-        
+         
         '###
         '### Create array unicorn posistion
         m.game.unicorn_position = {
